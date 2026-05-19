@@ -1,0 +1,19 @@
+{
+  "id": "corporate-legal",
+  "name": "Corporate Legal",
+  "description": "Workflows for M&A diligence, closing checklists, board consents, and entity compliance.",
+  "instructions": "instructions.base.md",
+  "skills": [
+    "skills/skill-ma-diligence-review.md",
+    "skills/skill-diligence-issue-table.md",
+    "skills/skill-material-contracts-schedule.md",
+    "skills/skill-closing-checklist.md",
+    "skills/skill-board-consent-drafter.md",
+    "skills/skill-entity-compliance-checklist.md",
+    "skills/skill-post-closing-tracker.md"
+  ],
+  "templates": [
+    "templates/diligence-issue-table-template.md",
+    "templates/closing-checklist-template.md"
+  ]
+}

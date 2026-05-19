@@ -1,0 +1,19 @@
+{
+  "id": "regulatory-legal",
+  "name": "Regulatory Legal",
+  "description": "Workflows for regulatory updates, policy gap analysis, comment-period tracking, and stakeholder briefings.",
+  "instructions": "instructions.base.md",
+  "skills": [
+    "skills/skill-regulatory-update-review.md",
+    "skills/skill-regulation-to-policy-gap.md",
+    "skills/skill-compliance-gap-tracker.md",
+    "skills/skill-nprm-comment-tracker.md",
+    "skills/skill-regulatory-change-summary.md",
+    "skills/skill-internal-stakeholder-briefing.md",
+    "skills/skill-policy-redraft-proposal.md"
+  ],
+  "templates": [
+    "templates/regulatory-change-summary-template.md",
+    "templates/source-to-obligation-map-template.md"
+  ]
+}

@@ -37,3 +37,24 @@ Use these manual test cases to verify that the AI bundles are functioning correc
 - **User Prompt:** "Classify our new AI-powered credit scoring tool under the EU AI Act."
 - **Expected Behavior:** AI should identify the system as "High-Risk" (Annex III) and list specific compliance obligations like conformity assessments.
 - **Failure Sign:** AI classifies it as "Minimal Risk" or fails to cite the EU AI Act categories.
+
+## 7. Corporate Legal
+- **Platform:** Claude Project
+- **Bundle:** Corporate Legal (`corporate-legal.zip`)
+- **User Prompt:** "Run an M&A diligence review on the uploaded data room. We are buy-side in a stock purchase of a Delaware SaaS target. Focus on change-of-control, IP assignment, and material customer contracts."
+- **Expected Behavior:** AI activates `skill-ma-diligence-review.md`, restates transaction scope, lists documents reviewed by filename, and produces a Diligence Issue Table containing exact quotes for change-of-control and assignment clauses, followed by a Top 5 Deal-Affecting Issues list and an Open Items / Missing Documents section.
+- **Failure Signs:** AI returns a prose narrative instead of the issue table; paraphrases change-of-control language instead of quoting it; declares the data room "clean" without listing categories or documents not provided; omits Open Items.
+
+## 8. Product Legal
+- **Platform:** ChatGPT Project
+- **Bundle:** Product Legal (`product-legal.zip`)
+- **User Prompt:** "Review the attached landing page copy and the 3 substantiation studies. Flag every claim that lacks substantiation or needs a disclosure. US consumer launch."
+- **Expected Behavior:** AI activates `skill-marketing-claims-review.md` and produces a Marketing Claims Substantiation Chart with each claim extracted as an exact quote, classified by type, mapped to substantiation in the uploaded studies (Y/N + filename), and ending with a High-Risk Claims list and recommended disclosure text.
+- **Failure Signs:** AI paraphrases claims instead of quoting; states a claim is "substantiated" rather than reporting whether substantiation was provided in the uploaded materials; misses superlative or comparative claims; omits disclosures for high-risk patterns.
+
+## 9. Regulatory Legal
+- **Platform:** Gemini Notebook
+- **Bundle:** Regulatory Legal (`regulatory-legal.zip`)
+- **User Prompt:** "Run a regulation-to-policy gap analysis between the obligations in the attached final rule and our attached internal AML policy v3.2."
+- **Expected Behavior:** AI activates `skill-regulation-to-policy-gap.md` and produces a Policy Gap Table with exact quotes from both the rule and the internal policy, a Covered / Partial / Not Covered / Conflict status for each obligation, a Summary by Status, a Top Gaps list, and an Open Items section.
+- **Failure Signs:** AI marks items "Covered" without quoting internal text; merges or paraphrases obligations; asserts non-compliance in fact rather than reporting documentary gaps; ignores the uploaded internal policy.
