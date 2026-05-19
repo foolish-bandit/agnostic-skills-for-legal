@@ -63,6 +63,8 @@ let selectedPlatform = null;
 let selectedAreaId = null;
 
 async function init() {
+    wireViewToggle();
+
     try {
         const response = await fetch('bundles/index.json', { cache: 'no-cache' });
         if (!response.ok) throw new Error('Index fetch failed: ' + response.status);
@@ -76,6 +78,26 @@ async function init() {
     wirePlatformCards();
     wireResetLink();
     wireCopyButton();
+}
+
+function wireViewToggle() {
+    const pillBundles = document.getElementById('pill-bundles');
+    const pillPrompts = document.getElementById('pill-prompts');
+    const viewBundles = document.getElementById('view-bundles');
+    const viewPrompts = document.getElementById('view-prompts');
+
+    function show(view) {
+        const isBundles = view === 'bundles';
+        viewBundles.classList.toggle('hidden', !isBundles);
+        viewPrompts.classList.toggle('hidden', isBundles);
+        pillBundles.classList.toggle('active', isBundles);
+        pillPrompts.classList.toggle('active', !isBundles);
+        pillBundles.setAttribute('aria-selected', String(isBundles));
+        pillPrompts.setAttribute('aria-selected', String(!isBundles));
+    }
+
+    pillBundles.addEventListener('click', () => show('bundles'));
+    pillPrompts.addEventListener('click', () => show('prompts'));
 }
 
 function wirePlatformCards() {

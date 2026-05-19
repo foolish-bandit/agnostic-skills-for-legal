@@ -14,6 +14,12 @@
     </header>
 
     <main>
+        <div class="view-toggle" role="tablist" aria-label="Choose a view">
+            <button class="pill active" type="button" id="pill-bundles" role="tab" aria-selected="true">Project &amp; Notebook packs</button>
+            <button class="pill" type="button" id="pill-prompts" role="tab" aria-selected="false">Individual prompts</button>
+        </div>
+
+        <div id="view-bundles">
         <section class="flow" aria-label="How it works">
             <div class="flow-step">
                 <span class="flow-icon" aria-hidden="true">
@@ -144,6 +150,38 @@
                 <p>No. This is an independent open-source project. It is not affiliated with Anthropic, OpenAI, Google, or Claude for Legal.</p>
             </details>
         </section>
+        </div>
+
+        <div id="view-prompts" class="hidden">
+            <section class="prompts-intro">
+                <h2>Individual prompts</h2>
+                <p>Browse and copy individual prompts — standalone starting points you can paste straight into an AI chat. Each prompt is a drafting and workflow aid for attorney review.</p>
+            </section>
+            <div class="prompt-skeleton" aria-hidden="true">
+                <div class="skel-card">
+                    <div class="skel-line skel-title"></div>
+                    <div class="skel-line"></div>
+                    <div class="skel-line"></div>
+                    <div class="skel-line skel-short"></div>
+                    <div class="skel-btn"></div>
+                </div>
+                <div class="skel-card">
+                    <div class="skel-line skel-title"></div>
+                    <div class="skel-line"></div>
+                    <div class="skel-line"></div>
+                    <div class="skel-line skel-short"></div>
+                    <div class="skel-btn"></div>
+                </div>
+                <div class="skel-card">
+                    <div class="skel-line skel-title"></div>
+                    <div class="skel-line"></div>
+                    <div class="skel-line"></div>
+                    <div class="skel-line skel-short"></div>
+                    <div class="skel-btn"></div>
+                </div>
+            </div>
+            <p class="prompts-note">The individual prompt library is being prepared. Check back soon.</p>
+        </div>
     </main>
 
     <footer>
