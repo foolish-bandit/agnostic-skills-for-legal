@@ -24,5 +24,12 @@ Use this to determine the risk category of an AI system according to the EU AI A
 - **Legal Basis:** Reference specific Articles or Annexes of the EU AI Act.
 - **Compliance Obligations:** List of required actions (e.g., Conformity assessment, Transparency notices).
 
+## Guardrails
+- Treat the classification as a preliminary issue-spotting result, not a conformity assessment; the EU AI Act requires a formal assessment for high-risk systems.
+- Quote the specific Article or Annex III category relied on; if the use-case description is too thin to map cleanly, flag the gap rather than guessing the category.
+- Escalate immediately any system that may fall under Art. 5 "prohibited practices" (e.g., social scoring, untargeted scraping, manipulative or exploitative uses).
+- Do not assume "minimal risk" by default; recruitment, education, and law-enforcement use-cases are presumptively high-risk under Annex III.
+- This is a workflow aid for issue spotting; attorney review is required before relying on any classification or compliance plan.
+
 ## Example starter prompt
 "We are building an AI tool that screens resumes for our recruiting team. How is this classified under the EU AI Act?"

@@ -25,5 +25,12 @@ Use this to document the facts for a new trademark search and identify immediate
 - **Red Flags:** Immediate conflicts found in provided data or preliminary search.
 - **Search Strategy:** Recommended terms for a professional comprehensive search.
 
+## Guardrails
+- This is an intake and triage aid only; it does not substitute for a professional comprehensive trademark search across registries and common-law sources.
+- Do not state that a mark "is available" or "clear"; identify red flags and likelihood-of-confusion risks for attorney review.
+- Flag descriptive or generic marks as high-risk for registrability, and note that absence of a conflict in the provided data does not mean none exists.
+- Limit conclusions to the goods/services classes and geographic scope provided; flag any expansion beyond them as needing a fresh search.
+- This is a workflow aid; a trademark attorney must review before adoption, filing, or public use of the mark.
+
 ## Example starter prompt
 "Help me clear the trademark 'CloudGuard' for a new network security software. We plan to launch in the US and Canada."

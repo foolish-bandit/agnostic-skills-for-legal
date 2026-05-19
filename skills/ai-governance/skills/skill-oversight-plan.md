@@ -24,5 +24,12 @@ Use this to design the "human-in-the-loop" controls required for responsible AI 
 - **Intervention Triggers:** Scenarios where a human MUST intervene.
 - **Feedback Loop:** Process for continuous model improvement.
 
+## Guardrails
+- Do not treat a human "rubber-stamp" as oversight; the plan must give reviewers genuine authority and time to override AI outputs.
+- Flag for escalation any high-risk decision point where no human currently has clear override or shut-down authority.
+- Address automation bias explicitly; do not assume reviewers will catch errors without training and intervention triggers designed for it.
+- If the AI system's risk level is unconfirmed, treat it as high-risk for oversight design rather than assuming lighter controls.
+- This is a drafting and workflow aid; attorney and compliance review is required before the oversight plan is adopted.
+
 ## Example starter prompt
 "For our AI recruiting tool, draft a human oversight plan that ensures our HR team reviews all 'rejection' recommendations before they are finalized."

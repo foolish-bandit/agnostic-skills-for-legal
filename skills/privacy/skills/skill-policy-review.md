@@ -23,5 +23,12 @@ Use this to review a public-facing Privacy Policy or Privacy Notice for missing 
 - **Vague Language:** Highlight sections that are too broad (e.g., "we may share data with any partner").
 - **Proposed Revisions:** Suggested text to improve transparency.
 
+## Guardrails
+- List any legally required disclosure that is absent as a Missing Element; do not assume an omitted clause is covered elsewhere.
+- Flag vague or open-ended language (e.g., "we may share data with any partner") as a transparency risk rather than treating it as adequate.
+- Scope the review to the laws the user names, and flag any practice that suggests another regime applies; do not assume one policy satisfies all jurisdictions.
+- Note that this reviews the policy text only and cannot confirm the organization's actual data practices match what is disclosed.
+- This is an issue-spotting and workflow aid; attorney review is required before the policy is published or relied upon.
+
 ## Example starter prompt
 "Audit the attached privacy policy for GDPR compliance. Does it correctly list the data subject rights and the DPO contact info?"

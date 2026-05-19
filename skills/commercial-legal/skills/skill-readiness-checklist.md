@@ -23,5 +23,12 @@ Use this as a final check before a contract is signed to ensure all required fie
 - [ ] Cross-references: (Verified)
 - [ ] Placeholder check: (None found / List remaining)
 
+## Guardrails
+- This is a completeness check only; do not assess whether the substantive terms are favorable or enforceable.
+- Report every remaining `[bracket]`, `TBD`, blank field, or unattached exhibit verbatim; do not assume a placeholder is intentional.
+- If a referenced exhibit or schedule is not provided, list it as missing rather than as verified.
+- Inconsistent party names, dates, or effective-date references should be flagged for escalation, not silently reconciled.
+- This is a workflow aid; attorney sign-off is required before the contract is executed.
+
 ## Example starter prompt
 "Is this contract ready to be sent for signature? Check for any missing exhibits or bracketed text."

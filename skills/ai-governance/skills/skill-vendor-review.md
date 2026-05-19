@@ -25,5 +25,12 @@ Use this to review the terms of service, data processing agreements, and securit
 | Data Retention | [Med] | Request zero-retention (API) or 30-day purge. |
 | IP Indemnity | [Low] | Vendor provides "Copyright Shield" for Enterprise users. |
 
+## Guardrails
+- Quote the vendor's exact language on model training, data retention, and IP indemnity; do not paraphrase a "no training" claim that is not stated in the terms.
+- Flag for escalation any vendor that trains on customer data with no opt-out, offers no IP/copyright indemnity, or reserves broad rights over prompts and outputs.
+- Distinguish marketing or whitepaper statements from binding contract terms; rely only on the executed agreement for the risk matrix.
+- If sub-processors or data-processing locations are not disclosed, list that as a High risk item, not as acceptable.
+- This is a workflow aid for issue spotting; attorney review of the vendor terms is required before reliance.
+
 ## Example starter prompt
 "Review the attached Enterprise terms for a new AI coding assistant. Does it protect our proprietary source code from being used for training?"

@@ -25,5 +25,12 @@ Use this to analyze the licenses of open-source components to ensure they are co
 - **Analysis:** Impact on the company's proprietary code.
 - **Action Items:** (e.g., "Must include license text in the 'About' screen").
 
+## Guardrails
+- Flag AGPL components in any SaaS or network-accessed product for immediate escalation, since remote access can trigger source-disclosure obligations.
+- Base the analysis on the actual license text and version provided; do not assume a library's license from its name, as projects relicense and dual-license.
+- Treat strong copyleft (GPL/AGPL) linked into proprietary code as a high-risk compatibility issue, not a routine attribution item.
+- Distinguish "internal use" from "distribution" or "SaaS"; if the use case is unclear, flag it rather than assuming the lighter obligation applies.
+- This is an issue-spotting and workflow aid; attorney review is required before the component is shipped or relied upon.
+
 ## Example starter prompt
 "We want to use a library licensed under AGPLv3 in our SaaS product. What are the risks and requirements?"

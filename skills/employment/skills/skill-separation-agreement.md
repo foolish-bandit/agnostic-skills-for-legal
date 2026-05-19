@@ -25,5 +25,12 @@ Use this to review a separation or severance agreement to ensure it includes ess
 | Consideration | ADEA 21-day period | High | Add 21-day review period for employee over 40. |
 | Confidentiality | Tax treatment | Low | Clarify reporting obligations. |
 
+## Guardrails
+- For employees 40 or older, flag any missing OWBPA/ADEA requirement (e.g., 21- or 45-day consideration period, 7-day revocation period, advice-to-consult-counsel language) for escalation.
+- Do not state the release "is valid"; identify whether non-waivable claims are improperly included and flag for attorney review.
+- Confirm consideration is something of value the employee is not already entitled to; flag if the release lacks adequate consideration.
+- Note jurisdiction-specific limits on releases and restrictive covenants rather than assuming a broad release is permissible everywhere.
+- This is an issue-spotting and workflow aid; attorney review is required before the agreement is presented or signed.
+
 ## Example starter prompt
 "Review this separation agreement for a 45-year-old employee in California. Does it meet all OWBPA requirements?"

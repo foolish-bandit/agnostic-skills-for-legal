@@ -24,5 +24,12 @@ Use this for an early-stage assessment of a new matter to identify strengths, we
 | Breach of Contract | [Partial] | Signed agreement; missing proof of damages. | Medium |
 | Fraud | [Low] | No evidence of intent to deceive. | Low |
 
+## Guardrails
+- Treat outcome and settlement estimates as rough, scenario-based ranges, not predictions; base them only on the facts and pleadings provided.
+- Distinguish alleged facts from established facts; do not assume the truth of either party's pleading.
+- Flag time-sensitive issues for immediate escalation, including statute-of-limitations, standing, and jurisdiction defenses that may be waived if not raised.
+- Note where key evidence is missing and mark the affected claim's risk level as preliminary until the record is developed.
+- This is an early-assessment and workflow aid; attorney review is required before relying on the analysis or any strategy decision.
+
 ## Example starter prompt
 "Perform an early case assessment based on the attached Complaint. What are our strongest defenses and where is our biggest exposure?"
