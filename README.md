@@ -8,7 +8,7 @@
 
 ## 🚀 Quick Start for Users
 
-1.  **Visit the Website:** [Link to your hosted site]
+1.  **Visit the Website:** [agnostic-skills-for-legal.pages.dev](https://agnostic-skills-for-legal.pages.dev)
 2.  **Select Your Platform:** Choose between Claude, ChatGPT, or Gemini.
 3.  **Choose a Practice Area:** Pick the legal domain you are working in (e.g., Commercial, Privacy, Employment).
 4.  **Download & Upload:** Download the ZIP file, open the `README-FIRST.md` inside, and follow the simple upload instructions for your chosen AI workspace.
