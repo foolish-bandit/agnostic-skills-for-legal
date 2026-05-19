@@ -1,0 +1,30 @@
+{
+  "name": "agnostic-skills-for-legal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "validate": "ts-node scripts/validate-manifests.ts",
+    "build": "npm run validate && ts-node scripts/build-bundles.ts && cp site/* public/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foolish-bandit/agnostic-skills-for-legal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/foolish-bandit/agnostic-skills-for-legal/issues"
+  },
+  "homepage": "https://github.com/foolish-bandit/agnostic-skills-for-legal#readme",
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.8",
+    "@types/node": "^25.9.0",
+    "adm-zip": "^0.5.17",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}

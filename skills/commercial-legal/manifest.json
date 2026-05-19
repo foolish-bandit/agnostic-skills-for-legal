@@ -1,0 +1,12 @@
+{
+  "id": "commercial-legal",
+  "name": "Commercial Legal",
+  "description": "Workflows for contract review, redlining, and negotiation playbooks.",
+  "instructions": "instructions.base.md",
+  "skills": [
+    "skills/skill-contract-review.md"
+  ],
+  "templates": [
+    "templates/playbook-template.md"
+  ]
+}

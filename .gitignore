@@ -1,0 +1,5 @@
+node_modules/
+dist/
+public/bundles/
+*.zip
+.DS_Store

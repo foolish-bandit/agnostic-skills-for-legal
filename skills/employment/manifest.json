@@ -1,0 +1,12 @@
+{
+  "id": "employment",
+  "name": "Employment",
+  "description": "Workflows for employment agreements, termination letters, and workplace policies.",
+  "instructions": "instructions.base.md",
+  "skills": [
+    "skills/skill-employment-agreement.md"
+  ],
+  "templates": [
+    "templates/termination-letter-template.md"
+  ]
+}

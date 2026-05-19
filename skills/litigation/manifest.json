@@ -1,0 +1,12 @@
+{
+  "id": "litigation",
+  "name": "Litigation",
+  "description": "Workflows for case assessment, discovery drafting, and legal research summaries.",
+  "instructions": "instructions.base.md",
+  "skills": [
+    "skills/skill-case-assessment.md"
+  ],
+  "templates": [
+    "templates/discovery-request-template.md"
+  ]
+}

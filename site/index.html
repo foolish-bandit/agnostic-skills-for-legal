@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agnostic Skills for Legal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Agnostic Skills for Legal</h1>
+        <p class="subtitle">Legal AI skills for Claude, ChatGPT, and Gemini.</p>
+    </header>
+
+    <main>
+        <section id="how-it-works">
+            <h2>Get Started in Minutes</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <p><strong>Pick your platform</strong><br>Claude, ChatGPT, or Gemini</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <p><strong>Pick your practice area</strong><br>Commercial, Privacy, Litigation, etc.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <p><strong>Download & Upload</strong><br>Get your ZIP and upload to your AI</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="selection">
+            <div id="platform-selection">
+                <h3>1. Where do you work?</h3>
+                <div class="cards" id="platform-cards">
+                    <div class="card platform-card" data-platform="claude">
+                        <h4>Claude Projects</h4>
+                        <p>Best for deep analysis and larger knowledge bases.</p>
+                    </div>
+                    <div class="card platform-card" data-platform="chatgpt">
+                        <h4>ChatGPT Projects</h4>
+                        <p>Powerful workflows for the ChatGPT web interface.</p>
+                    </div>
+                    <div class="card platform-card" data-platform="gemini">
+                        <h4>Gemini Notebooks</h4>
+                        <p>Optimized for Google's NotebookLM source-based chats.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="area-selection" class="hidden">
+                <h3>2. What is your practice area?</h3>
+                <div class="cards" id="area-cards">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <div id="download-section" class="hidden">
+                <h3>3. Download Your Bundle</h3>
+                <div id="download-action">
+                    <a href="#" id="download-btn" class="button">Download ZIP Bundle</a>
+                    <p id="bundle-info"></p>
+                    <p class="instructions-hint">Open the <strong>README-FIRST.md</strong> file inside the ZIP for step-by-step upload instructions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="disclaimer">
+            <p><strong>Disclaimer:</strong> Not legal advice. Attorney review required. This project provides drafting and workflow aids only.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Agnostic Skills for Legal. Open Source (Apache 2.0). <a href="https://github.com/foolish-bandit/agnostic-skills-for-legal">View on GitHub</a></p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

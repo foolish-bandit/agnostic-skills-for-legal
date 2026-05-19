@@ -1,0 +1,12 @@
+{
+  "id": "ip-legal",
+  "name": "IP Legal",
+  "description": "Workflows for trademark clearance, patent summaries, and IP licensing review.",
+  "instructions": "instructions.base.md",
+  "skills": [
+    "skills/skill-trademark-clearance.md"
+  ],
+  "templates": [
+    "templates/ip-licensing-checklist.md"
+  ]
+}
