@@ -4,7 +4,11 @@
   "description": "Workflows for contract review, redlining, and negotiation playbooks.",
   "instructions": "instructions.base.md",
   "skills": [
-    "skills/skill-contract-review.md"
+    "skills/skill-contract-review.md",
+    "skills/skill-nda-review.md",
+    "skills/skill-saas-review.md",
+    "skills/skill-negotiation-list.md",
+    "skills/skill-readiness-checklist.md"
   ],
   "templates": [
     "templates/playbook-template.md"

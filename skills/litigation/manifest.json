@@ -4,7 +4,10 @@
   "description": "Workflows for case assessment, discovery drafting, and legal research summaries.",
   "instructions": "instructions.base.md",
   "skills": [
-    "skills/skill-case-assessment.md"
+    "skills/skill-case-assessment.md",
+    "skills/skill-chronology-builder.md",
+    "skills/skill-discovery-drafting.md",
+    "skills/skill-privilege-log.md"
   ],
   "templates": [
     "templates/discovery-request-template.md"

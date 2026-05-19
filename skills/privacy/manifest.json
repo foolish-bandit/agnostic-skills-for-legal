@@ -4,7 +4,10 @@
   "description": "Workflows for DPA review, privacy impact assessments, and GDPR/CCPA compliance.",
   "instructions": "instructions.base.md",
   "skills": [
-    "skills/skill-dpa-review.md"
+    "skills/skill-dpa-review.md",
+    "skills/skill-privacy-applicability.md",
+    "skills/skill-policy-review.md",
+    "skills/skill-incident-intake.md"
   ],
   "templates": [
     "templates/pia-template.md"

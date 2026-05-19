@@ -1,10 +1,29 @@
-# Skill: DPA Review
+# Skill: DPA Review (Data Processing Agreement)
 
-Structured review for Data Processing Agreements.
+## When to use this skill
+Use this to review Data Processing Agreements (DPAs) or privacy addenda to ensure compliance with laws like GDPR Art. 28 or CCPA.
+
+## Trigger phrases
+- "Review this DPA"
+- "Is this DPA GDPR compliant?"
+- "Analyze this data processing addendum"
+
+## Required user inputs
+- DPA text.
+- Role of the organization (Controller/Processor).
+- Primary jurisdiction (e.g., EU, UK, California).
 
 ## Workflow
-1.  **Check Scope:** Does the DPA cover all required data types and processing activities?
-2.  **Liability Caps:** Are there specific caps for data breaches?
-3.  **Sub-processor Approval:** Is there a general or specific authorization for sub-processors?
-4.  **Audit Rights:** Does the DPA provide sufficient audit and inspection rights?
-5.  **Standard Contractual Clauses (SCCs):** Are the correct modules selected for cross-border transfers?
+1. **Mandatory Terms Check:** Verify presence of data processing duration, nature, purpose, and data types.
+2. **Controller/Processor Rights:** Check audit rights, sub-processor approval, and breach notification windows.
+3. **Cross-Border Transfers:** Identify if SCCs or other transfer mechanisms are included.
+4. **Security Obligations:** Review technical and organizational measures (TOMs).
+
+## Output format: DPA Compliance Table
+| Requirement | Status (Met/Unmet) | Analysis | Proposed Edit |
+| :--- | :--- | :--- | :--- |
+| Audit Rights | [Met] | 24-hour notice is too short. | Change to 30 days notice. |
+| Breach Notice | [Unmet] | 72 hours missing. | Add 72-hour notice period. |
+
+## Example starter prompt
+"Review the attached DPA. We are the Controller under GDPR. Verify if the breach notification and audit clauses meet Art. 28 requirements."

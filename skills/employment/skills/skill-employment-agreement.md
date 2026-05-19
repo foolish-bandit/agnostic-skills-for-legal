@@ -1,9 +1,28 @@
 # Skill: Employment Agreement Review
 
-Review of employment contracts and offer letters.
+## When to use this skill
+Use this to review offer letters or employment agreements to ensure they align with local labor laws and company standards.
+
+## Trigger phrases
+- "Review this offer letter"
+- "Analyze this employment agreement"
+- "Is this contract enforceable?"
+
+## Required user inputs
+- Agreement text.
+- Jurisdiction (State/Country).
+- Employee's role and exemption status.
 
 ## Workflow
-1.  **Compensation & Benefits:** Verify salary, bonus, and equity terms match the term sheet.
-2.  **Restrictive Covenants:** Check enforceability of non-competes and non-solicits in the target jurisdiction.
-3.  **Termination Provisions:** Review "for cause" vs. "without cause" definitions.
-4.  **Intellectual Property:** Ensure standard "work made for hire" and IP assignment clauses are present.
+1. **Compensation & Benefits:** Verify salary, bonus, and equity terms match the term sheet.
+2. **Restrictive Covenants:** Check enforceability of non-competes, non-solicits, and confidentiality clauses in the target jurisdiction.
+3. **At-Will vs. Term:** Confirm if the employment is at-will and if termination notice periods are required.
+4. **IP Assignment:** Ensure "work made for hire" and IP assignment clauses are robust.
+
+## Output format: Redline Memo
+- **Executive Summary:** Key risks and missing clauses.
+- **Clause-by-Clause Analysis:** Risk level (Low/Med/High).
+- **Proposed Edits:** Recommended text to mitigate risk.
+
+## Example starter prompt
+"Review the attached offer letter for a New York based software engineer. Is the non-compete enforceable under current NY law?"

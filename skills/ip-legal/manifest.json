@@ -4,7 +4,10 @@
   "description": "Workflows for trademark clearance, patent summaries, and IP licensing review.",
   "instructions": "instructions.base.md",
   "skills": [
-    "skills/skill-trademark-clearance.md"
+    "skills/skill-trademark-clearance.md",
+    "skills/skill-ownership-audit.md",
+    "skills/skill-oss-review.md",
+    "skills/skill-license-review.md"
   ],
   "templates": [
     "templates/ip-licensing-checklist.md"

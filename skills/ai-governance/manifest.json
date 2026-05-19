@@ -4,7 +4,10 @@
   "description": "Workflows for AI policy drafting, risk assessment, and regulatory compliance (e.g., EU AI Act).",
   "instructions": "instructions.base.md",
   "skills": [
-    "skills/skill-ai-risk-assessment.md"
+    "skills/skill-ai-intake.md",
+    "skills/skill-ai-risk-assessment.md",
+    "skills/skill-vendor-review.md",
+    "skills/skill-oversight-plan.md"
   ],
   "templates": [
     "templates/ai-policy-template.md"
