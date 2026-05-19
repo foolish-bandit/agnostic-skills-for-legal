@@ -2,6 +2,7 @@
   "id": "ai-governance",
   "name": "AI Governance",
   "description": "Workflows for AI policy drafting, risk assessment, and regulatory compliance (e.g., EU AI Act).",
+  "examplePrompt": "We are building an AI tool that screens resumes for our recruiting team. How is this classified under the EU AI Act?",
   "instructions": "instructions.base.md",
   "skills": [
     "skills/skill-ai-intake.md",

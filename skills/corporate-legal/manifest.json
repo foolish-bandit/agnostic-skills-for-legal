@@ -2,6 +2,7 @@
   "id": "corporate-legal",
   "name": "Corporate Legal",
   "description": "Workflows for M&A diligence, closing checklists, board consents, and entity compliance.",
+  "examplePrompt": "Run an M&A diligence review on the uploaded data room. We are buy-side in a stock purchase of a Delaware SaaS company. Focus on change-of-control, IP assignment, and material customer contracts.",
   "instructions": "instructions.base.md",
   "skills": [
     "skills/skill-ma-diligence-review.md",

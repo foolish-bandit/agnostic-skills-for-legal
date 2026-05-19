@@ -2,6 +2,7 @@
   "id": "regulatory-legal",
   "name": "Regulatory Legal",
   "description": "Workflows for regulatory updates, policy gap analysis, comment-period tracking, and stakeholder briefings.",
+  "examplePrompt": "Summarize the attached final rule. We are a US consumer fintech. Summary plus obligations map, please.",
   "instructions": "instructions.base.md",
   "skills": [
     "skills/skill-regulatory-update-review.md",

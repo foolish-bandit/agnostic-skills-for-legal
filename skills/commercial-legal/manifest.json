@@ -2,6 +2,7 @@
   "id": "commercial-legal",
   "name": "Commercial Legal",
   "description": "Workflows for contract review, redlining, and negotiation playbooks.",
+  "examplePrompt": "Please perform a general risk review of the attached MSA. We are the Customer, and our risk tolerance is balanced.",
   "instructions": "instructions.base.md",
   "skills": [
     "skills/skill-contract-review.md",

@@ -2,6 +2,7 @@
   "id": "privacy",
   "name": "Privacy",
   "description": "Workflows for DPA review, privacy impact assessments, and GDPR/CCPA compliance.",
+  "examplePrompt": "We are a UK-based company selling to US residents in California. We have $10M revenue. Which privacy laws apply to us?",
   "instructions": "instructions.base.md",
   "skills": [
     "skills/skill-dpa-review.md",

@@ -54,11 +54,69 @@ main {
     padding: 2rem 1.25rem 3rem;
 }
 
+/* Flow diagram */
+.flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.flow-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    background: var(--bg-soft);
+}
+
+.flow-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--accent);
+}
+
+.flow-icon svg { width: 20px; height: 20px; }
+
+.flow-step p {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--ink);
+}
+
+.flow-num {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--accent);
+    margin-right: 0.15rem;
+}
+
+.flow-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--line);
+}
+
+.flow-arrow svg { width: 22px; height: 22px; }
+
+/* Steps */
 .step-section {
     margin-bottom: 2.5rem;
 }
 
-.step-section h2 {
+.step-section h2,
+.faq h2 {
     font-size: 1.05rem;
     font-weight: 600;
     margin: 0 0 1rem;
@@ -116,6 +174,20 @@ main {
     box-shadow: inset 0 0 0 1px var(--accent);
 }
 
+.card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.card-icon svg { width: 18px; height: 18px; }
+
 .card h3 {
     margin: 0 0 0.25rem;
     font-size: 1rem;
@@ -143,6 +215,7 @@ main {
     display: none !important;
 }
 
+/* Download panel */
 .download-panel {
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -186,6 +259,53 @@ main {
     background: #094075;
 }
 
+.prompt-block {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line-soft);
+}
+
+.prompt-block h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+}
+
+.prompt-block blockquote {
+    margin: 0 0 0.6rem;
+    padding: 0.75rem 0.9rem;
+    background: var(--bg);
+    border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--ink);
+}
+
+.copy-btn {
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    border-color: var(--accent);
+}
+
+.copy-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 .download-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -212,10 +332,10 @@ main {
 }
 
 .detail-block li {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
 }
 
-.detail-block code {
+code {
     background: var(--bg);
     border: 1px solid var(--line-soft);
     padding: 0.05rem 0.3rem;
@@ -240,6 +360,52 @@ main {
     border-radius: var(--radius);
     padding: 1rem;
     font-size: 0.9rem;
+}
+
+/* FAQ */
+.faq {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line-soft);
+}
+
+.faq details {
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+    background: var(--bg-soft);
+}
+
+.faq summary {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    list-style: none;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::before {
+    content: "+";
+    display: inline-block;
+    width: 1rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.faq details[open] summary::before { content: "\2212"; }
+
+.faq summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.faq details p {
+    margin: 0;
+    padding: 0 1rem 0.9rem 2rem;
+    font-size: 0.9rem;
+    color: var(--muted);
 }
 
 footer {
@@ -268,9 +434,12 @@ footer a:hover {
     text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 680px) {
     header { padding: 2rem 1rem 1rem; }
     main { padding: 1.5rem 1rem 2rem; }
+    .flow { flex-direction: column; }
+    .flow-step { flex-direction: row; justify-content: flex-start; text-align: left; }
+    .flow-arrow { justify-content: center; transform: rotate(90deg); }
     .download-details { grid-template-columns: 1fr; }
     .download-summary { gap: 1rem; }
 }

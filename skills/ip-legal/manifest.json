@@ -2,6 +2,7 @@
   "id": "ip-legal",
   "name": "IP Legal",
   "description": "Workflows for trademark clearance, patent summaries, and IP licensing review.",
+  "examplePrompt": "Help me clear the trademark 'CloudGuard' for a new network security software. We plan to launch in the US and Canada.",
   "instructions": "instructions.base.md",
   "skills": [
     "skills/skill-trademark-clearance.md",
