@@ -34,6 +34,30 @@ const ZIP_CONTENTS = {
     ]
 };
 
+const SETUP_STEPS = {
+    claude: [
+        'Download the ZIP and unzip it.',
+        'In Claude, create a new Project.',
+        'Open <code>instructions.md</code> and paste it into the Project’s custom instructions.',
+        'Upload the files in <code>knowledge-base/</code> to the Project’s knowledge.',
+        'Start a chat with the starter prompt above (also in <code>README-FIRST.md</code>).'
+    ],
+    chatgpt: [
+        'Download the ZIP and unzip it.',
+        'In ChatGPT, create a new Project.',
+        'Open <code>PROJECT_INSTRUCTIONS.md</code> and paste it into the Project’s instructions.',
+        'Upload the consolidated skills file (and any templates) to the Project’s files.',
+        'Start a chat with the starter prompt above (also in <code>README-FIRST.md</code>).'
+    ],
+    gemini: [
+        'Download the ZIP and unzip it.',
+        'In NotebookLM, create a new notebook.',
+        'Add <code>NOTEBOOK_INSTRUCTIONS.md</code> and the consolidated skills file as sources.',
+        'Add any template files as sources too if you need them.',
+        'Start with the starter prompt above (also in <code>README-FIRST.md</code>).'
+    ]
+};
+
 let bundleIndex = [];
 let selectedPlatform = null;
 let selectedAreaId = null;
@@ -51,6 +75,7 @@ async function init() {
 
     wirePlatformCards();
     wireResetLink();
+    wireCopyButton();
 }
 
 function wirePlatformCards() {
@@ -60,10 +85,25 @@ function wirePlatformCards() {
 }
 
 function wireResetLink() {
-    const link = document.getElementById('reset-link');
-    link.addEventListener('click', (e) => {
+    document.getElementById('reset-link').addEventListener('click', (e) => {
         e.preventDefault();
         resetSelection();
+    });
+}
+
+function wireCopyButton() {
+    const btn = document.getElementById('copy-prompt');
+    btn.addEventListener('click', async () => {
+        const text = document.getElementById('example-prompt').textContent;
+        try {
+            await navigator.clipboard.writeText(text);
+            btn.textContent = 'Copied';
+            setTimeout(() => { btn.textContent = 'Copy prompt'; }, 1500);
+        } catch (err) {
+            console.error(err);
+            btn.textContent = 'Copy failed';
+            setTimeout(() => { btn.textContent = 'Copy prompt'; }, 1500);
+        }
     });
 }
 
@@ -141,9 +181,20 @@ function renderDownload() {
     btn.href = platformData.downloadPath;
     btn.textContent = `Download ${area.name} for ${PLATFORM_LABELS[selectedPlatform]}`;
 
-    const contents = document.getElementById('zip-contents');
-    contents.innerHTML = ZIP_CONTENTS[selectedPlatform]
+    const promptBlock = document.getElementById('prompt-block');
+    if (area.examplePrompt) {
+        document.getElementById('example-prompt').textContent = area.examplePrompt;
+        promptBlock.classList.remove('hidden');
+    } else {
+        promptBlock.classList.add('hidden');
+    }
+
+    document.getElementById('zip-contents').innerHTML = ZIP_CONTENTS[selectedPlatform]
         .map(item => `<li>${item}</li>`)
+        .join('');
+
+    document.getElementById('setup-steps').innerHTML = SETUP_STEPS[selectedPlatform]
+        .map(step => `<li>${step}</li>`)
         .join('');
 }
 
@@ -179,6 +230,7 @@ function showError(messageHtml) {
     banner.innerHTML = messageHtml;
     banner.classList.remove('hidden');
     document.querySelectorAll('.step-section').forEach(s => s.classList.add('hidden'));
+    document.querySelector('.flow').classList.add('hidden');
 }
 
 function escapeHtml(str) {

@@ -2,6 +2,7 @@
   "id": "litigation",
   "name": "Litigation",
   "description": "Workflows for case assessment, discovery drafting, and legal research summaries.",
+  "examplePrompt": "Based on the attached emails, build a master chronology of the events leading up to the contract termination.",
   "instructions": "instructions.base.md",
   "skills": [
     "skills/skill-case-assessment.md",

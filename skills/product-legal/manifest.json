@@ -2,6 +2,7 @@
   "id": "product-legal",
   "name": "Product Legal",
   "description": "Workflows for product launch review, marketing claims, feature risk triage, and consumer protection.",
+  "examplePrompt": "Run a product launch legal review on the attached PRD, mocks, and marketing one-pager. Launch in US + EU in 3 weeks, consumer product.",
   "instructions": "instructions.base.md",
   "skills": [
     "skills/skill-product-launch-review.md",

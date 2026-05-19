@@ -2,6 +2,7 @@
   "id": "employment",
   "name": "Employment",
   "description": "Workflows for employment agreements, termination letters, and workplace policies.",
+  "examplePrompt": "An employee just reported that their manager is making inappropriate comments about their religion. Help me intake this complaint.",
   "instructions": "instructions.base.md",
   "skills": [
     "skills/skill-employment-agreement.md",

@@ -6,6 +6,7 @@ interface Manifest {
   id: string;
   name: string;
   description: string;
+  examplePrompt?: string;
   instructions: string;
   skills: string[];
   templates: string[];
@@ -41,7 +42,13 @@ async function build() {
 
     // Generate bundles for each platform
     const platforms = ['claude', 'chatgpt', 'gemini'];
-    const areaBundles: any = { id: manifest.id, name: manifest.name, description: manifest.description, platforms: {} };
+    const areaBundles: any = {
+      id: manifest.id,
+      name: manifest.name,
+      description: manifest.description,
+      examplePrompt: manifest.examplePrompt || '',
+      platforms: {}
+    };
 
     for (const platform of platforms) {
       const zip = new AdmZip();
