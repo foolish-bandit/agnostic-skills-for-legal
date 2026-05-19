@@ -26,5 +26,11 @@ Use this to document the facts of a new proposed AI use-case to begin the govern
 - **Initial Risk Signals:** Bulleted list of potential governance concerns.
 - **Assigned Priority:** [Low/Med/High] for the full risk assessment.
 
+## Guardrails
+- Capture facts as reported; do not assume data flows or training behavior that the user has not confirmed.
+- Auto-flag any use-case touching HR, healthcare, biometrics, credit, or critical infrastructure as a high-priority candidate for full risk assessment.
+- If the data footprint is unclear or includes personal/confidential data without a documented basis, list it as an Open Item rather than marking the intake "complete."
+- This intake memo is a triage and workflow aid; attorney and privacy review is required before the use-case is cleared for deployment.
+
 ## Example starter prompt
 "We want to use a GPT-4 based chatbot for our internal HR helpdesk to answer employee benefits questions. Help me triage this use-case."

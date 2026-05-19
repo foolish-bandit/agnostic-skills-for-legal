@@ -25,5 +25,12 @@ Use this to review Data Processing Agreements (DPAs) or privacy addenda to ensur
 | Audit Rights | [Met] | 24-hour notice is too short. | Change to 30 days notice. |
 | Breach Notice | [Unmet] | 72 hours missing. | Add 72-hour notice period. |
 
+## Guardrails
+- Mark a mandatory Art. 28 term as "Unmet" whenever it is absent or unclear; do not infer that a missing clause is satisfied elsewhere.
+- Quote the exact contract language for breach-notification windows, audit rights, sub-processor approval, and transfer mechanisms.
+- Flag for escalation any cross-border transfer lacking SCCs or another valid mechanism, and any breach-notice period longer than the regulator's deadline.
+- Tailor the review to the stated role (Controller vs. Processor) and jurisdiction; do not assume GDPR terms satisfy CCPA or UK requirements.
+- This is an issue-spotting and workflow aid; attorney review is required before the DPA is signed or relied upon.
+
 ## Example starter prompt
 "Review the attached DPA. We are the Controller under GDPR. Verify if the breach notification and audit clauses meet Art. 28 requirements."

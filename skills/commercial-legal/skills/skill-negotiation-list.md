@@ -22,5 +22,12 @@ Use this to prepare for a negotiation by summarizing key sticking points and sug
 | :--- | :--- | :--- | :--- |
 | [e.g. Liability] | [1x Fees] | [Unlimited] | [2x Fees or Specific Dollar Cap] |
 
+## Guardrails
+- Base "their position" only on the actual redlines or counter-version provided; do not invent the counterparty's stance or motives.
+- Keep "must-haves" non-negotiable in the chart; never propose a compromise that gives away a stated must-have such as a liability cap.
+- Flag for escalation any issue where the proposed compromise still leaves material exposure (e.g., uncapped indemnity, broad IP assignment).
+- Proposed trade-offs are negotiation options, not recommendations on what is acceptable to sign.
+- This is a negotiation-prep workflow aid; attorney review is required before any position is conveyed or any compromise is accepted.
+
 ## Example starter prompt
 "Based on the attached redlines, create a negotiation issues list for our call tomorrow. We can be flexible on Governing Law but must have a 1x cap on liability."
