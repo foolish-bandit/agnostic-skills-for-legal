@@ -1,37 +1,45 @@
 # Deployment Guide
 
-Agnostic Skills for Legal is a static project. Once you run the build script, everything you need is in the `public/` directory.
+Agnostic Skills for Legal is a static project. Running the build script generates the full site — HTML, CSS, JS, and all ZIP bundles — into the `public/` directory.
 
 ## Prerequisites
-Run the build script to generate all assets:
+
 ```bash
+npm install
 npm run build
 ```
 
-## Deployment Options
+`npm run build` validates every manifest, generates the bundles into `public/bundles/`, and copies the site files from `site/` into `public/`. The Node version is pinned to 20 via `.nvmrc`.
 
-### 1. GitHub Pages
+## Recommended: Cloudflare Pages
 
-This repo ships a workflow at `.github/workflows/deploy-pages.yml` that builds the site and publishes `public/` on every push to `main`.
+The project is hosted on Cloudflare Pages, connected directly to this GitHub repository. Cloudflare runs the build fresh on every push, so `public/bundles/` does not need to be committed.
 
 One-time setup:
 
-1. Go to **Settings → Pages**.
-2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+1. In the Cloudflare dashboard, go to **Workers & Pages → Create → Pages → Connect to Git**.
+2. Select the `agnostic-skills-for-legal` repository.
+3. Configure the build:
+   - **Production branch:** `main`
+   - **Framework preset:** None
+   - **Build command:** `npm run build`
+   - **Build output directory:** `public`
+4. Deploy.
 
-After that, every push to `main` triggers `Deploy site to GitHub Pages`, which runs `npm ci && npm run build` and uploads `public/` (including freshly generated `public/bundles/`) as the Pages artifact.
+Every push to `main` then triggers a new production deployment. Pushes to other branches create preview deployments automatically.
 
-> Note: GitHub Pages cannot natively serve from `/public/` on `main`. Without the workflow (or without setting the source to "GitHub Actions"), Pages falls back to the repo root and renders `README.md` as the landing page.
+Cloudflare Pages serves `.json` with the correct `application/json` MIME type, so the website's fetch of `bundles/index.json` works without extra configuration.
 
-### 2. Cloudflare Pages
-1.  Connect your GitHub repository to Cloudflare Pages.
-2.  **Build command:** `npm run build`
-3.  **Build output directory:** `public`
+## Alternative: Vercel / Netlify
 
-### 3. Vercel / Netlify
-1.  Import your repository.
-2.  Set the **Build Command** to `npm run build`.
-3.  Set the **Output Directory** to `public`.
+1. Import the repository.
+2. **Build command:** `npm run build`
+3. **Output directory:** `public`
 
-## Static Hosting Note
-The website relies on fetching `bundles/index.json`. Ensure your hosting provider serves JSON files with the correct `application/json` MIME type.
+## Alternative: any static host
+
+Run `npm run build` locally or in CI, then upload the contents of `public/` to any static host. Ensure the host serves `.json` files with the `application/json` MIME type.
+
+## Note on GitHub Pages
+
+GitHub Pages cannot natively serve from a `/public` subfolder on `main`, and `public/bundles/` is intentionally gitignored. Hosting on GitHub Pages would require a dedicated Actions workflow to build and publish the artifact. The project uses Cloudflare Pages instead, which removes that friction.
