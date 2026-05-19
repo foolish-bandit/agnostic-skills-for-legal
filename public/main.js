@@ -1,78 +1,193 @@
-let selectedPlatform = null;
-let selectedArea = null;
+const PLATFORM_LABELS = {
+    claude: 'Claude Projects',
+    chatgpt: 'ChatGPT Projects',
+    gemini: 'Gemini Notebooks'
+};
+
+const PRACTICE_AREA_ORDER = [
+    'commercial-legal',
+    'corporate-legal',
+    'privacy',
+    'product-legal',
+    'employment',
+    'litigation',
+    'regulatory-legal',
+    'ip-legal',
+    'ai-governance'
+];
+
+const ZIP_CONTENTS = {
+    claude: [
+        '<code>instructions.md</code>',
+        '<code>knowledge-base/</code> (separate skill and template files)',
+        '<code>README-FIRST.md</code>'
+    ],
+    chatgpt: [
+        '<code>PROJECT_INSTRUCTIONS.md</code>',
+        'Consolidated practice-area skills file',
+        '<code>README-FIRST.md</code>'
+    ],
+    gemini: [
+        '<code>NOTEBOOK_INSTRUCTIONS.md</code>',
+        'Consolidated practice-area skills file',
+        '<code>README-FIRST.md</code>'
+    ]
+};
+
 let bundleIndex = [];
+let selectedPlatform = null;
+let selectedAreaId = null;
 
 async function init() {
     try {
-        const response = await fetch('bundles/index.json');
+        const response = await fetch('bundles/index.json', { cache: 'no-cache' });
+        if (!response.ok) throw new Error('Index fetch failed: ' + response.status);
         bundleIndex = await response.json();
-        
-        setupPlatformSelection();
-    } catch (error) {
-        console.error('Failed to load bundle index:', error);
+    } catch (err) {
+        console.error(err);
+        showError('Bundle catalog could not be loaded. Please check that <code>public/bundles/index.json</code> exists and run <code>npm run build</code>.');
+        return;
     }
+
+    wirePlatformCards();
+    wireResetLink();
 }
 
-function setupPlatformSelection() {
-    const cards = document.querySelectorAll('.platform-card');
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            cards.forEach(c => c.classList.remove('selected'));
-            card.classList.add('selected');
-            selectedPlatform = card.dataset.platform;
-            
-            showAreaSelection();
-        });
+function wirePlatformCards() {
+    document.querySelectorAll('.platform-card').forEach(card => {
+        card.addEventListener('click', () => selectPlatform(card.dataset.platform));
     });
 }
 
-function showAreaSelection() {
-    const areaSelection = document.getElementById('area-selection');
-    const areaCards = document.getElementById('area-cards');
-    areaCards.innerHTML = '';
-    
-    bundleIndex.forEach(area => {
-        const card = document.createElement('div');
+function wireResetLink() {
+    const link = document.getElementById('reset-link');
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        resetSelection();
+    });
+}
+
+function selectPlatform(platform) {
+    selectedPlatform = platform;
+
+    document.querySelectorAll('.platform-card').forEach(card => {
+        card.classList.toggle('selected', card.dataset.platform === platform);
+    });
+
+    renderAreas();
+    document.getElementById('step-area').classList.remove('hidden');
+
+    // Keep the practice area selection only if it's still available for this platform.
+    if (selectedAreaId && !findArea(selectedAreaId)) {
+        selectedAreaId = null;
+    }
+
+    if (selectedAreaId) {
+        renderDownload();
+        document.getElementById('step-download').classList.remove('hidden');
+        highlightAreaCard(selectedAreaId);
+    } else {
+        document.getElementById('step-download').classList.add('hidden');
+    }
+
+    document.getElementById('step-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function selectArea(areaId) {
+    selectedAreaId = areaId;
+    highlightAreaCard(areaId);
+    renderDownload();
+    document.getElementById('step-download').classList.remove('hidden');
+    document.getElementById('step-download').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderAreas() {
+    const container = document.getElementById('area-cards');
+    container.innerHTML = '';
+
+    const orderedAreas = orderedBundleIndex().filter(area => area.platforms[selectedPlatform]);
+
+    orderedAreas.forEach(area => {
+        const card = document.createElement('button');
+        card.type = 'button';
         card.className = 'card area-card';
+        card.dataset.areaId = area.id;
         card.innerHTML = `
-            <h4>${area.name}</h4>
-            <p>${area.description}</p>
+            <h3>${escapeHtml(area.name)}</h3>
+            <p>${escapeHtml(area.description || '')}</p>
+            <span class="tag">ZIP available</span>
         `;
-        card.addEventListener('click', () => {
-            document.querySelectorAll('.area-card').forEach(c => c.classList.remove('selected'));
-            card.classList.add('selected');
-            selectedArea = area;
-            
-            showDownloadSection();
-        });
-        areaCards.appendChild(card);
+        card.addEventListener('click', () => selectArea(area.id));
+        container.appendChild(card);
     });
-    
-    areaSelection.classList.remove('hidden');
-    document.getElementById('download-section').classList.add('hidden');
-    
-    // Scroll to area selection
-    areaSelection.scrollIntoView({ behavior: 'smooth' });
 }
 
-function showDownloadSection() {
-    const downloadSection = document.getElementById('download-section');
-    const downloadBtn = document.getElementById('download-btn');
-    const bundleInfo = document.getElementById('bundle-info');
-    
-    const platformData = selectedArea.platforms[selectedPlatform];
-    downloadBtn.href = platformData.downloadPath;
-    
-    bundleInfo.textContent = `${selectedArea.name} for ${capitalize(selectedPlatform)}`;
-    
-    downloadSection.classList.remove('hidden');
-    
-    // Scroll to download section
-    downloadSection.scrollIntoView({ behavior: 'smooth' });
+function highlightAreaCard(areaId) {
+    document.querySelectorAll('.area-card').forEach(card => {
+        card.classList.toggle('selected', card.dataset.areaId === areaId);
+    });
 }
 
-function capitalize(s) {
-    return s.charAt(0).toUpperCase() + s.slice(1);
+function renderDownload() {
+    const area = findArea(selectedAreaId);
+    if (!area || !selectedPlatform) return;
+
+    const platformData = area.platforms[selectedPlatform];
+
+    document.getElementById('summary-platform').textContent = PLATFORM_LABELS[selectedPlatform];
+    document.getElementById('summary-area').textContent = area.name;
+
+    const btn = document.getElementById('download-btn');
+    btn.href = platformData.downloadPath;
+    btn.textContent = `Download ${area.name} for ${PLATFORM_LABELS[selectedPlatform]}`;
+
+    const contents = document.getElementById('zip-contents');
+    contents.innerHTML = ZIP_CONTENTS[selectedPlatform]
+        .map(item => `<li>${item}</li>`)
+        .join('');
+}
+
+function resetSelection() {
+    selectedPlatform = null;
+    selectedAreaId = null;
+    document.querySelectorAll('.card.selected').forEach(c => c.classList.remove('selected'));
+    document.getElementById('step-area').classList.add('hidden');
+    document.getElementById('step-download').classList.add('hidden');
+    document.getElementById('area-cards').innerHTML = '';
+    document.getElementById('step-platform').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function orderedBundleIndex() {
+    const byId = new Map(bundleIndex.map(a => [a.id, a]));
+    const ordered = PRACTICE_AREA_ORDER.map(id => byId.get(id)).filter(Boolean);
+    // Append any bundles not in the explicit order list, alphabetically.
+    const extras = bundleIndex
+        .filter(a => !PRACTICE_AREA_ORDER.includes(a.id))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    return [...ordered, ...extras];
+}
+
+function findArea(areaId) {
+    const area = bundleIndex.find(a => a.id === areaId);
+    if (!area) return null;
+    if (selectedPlatform && !area.platforms[selectedPlatform]) return null;
+    return area;
+}
+
+function showError(messageHtml) {
+    const banner = document.getElementById('error-banner');
+    banner.innerHTML = messageHtml;
+    banner.classList.remove('hidden');
+    document.querySelectorAll('.step-section').forEach(s => s.classList.add('hidden'));
+}
+
+function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 }
 
 init();
