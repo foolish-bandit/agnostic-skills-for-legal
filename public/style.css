@@ -211,6 +211,17 @@ main {
     background: var(--bg-soft);
 }
 
+.card-note {
+    margin-top: 0.6rem !important;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: #7a4f01;
+    background: #fff8e1;
+    border: 1px solid #f0e0b6;
+    border-radius: 4px;
+    padding: 0.5rem 0.6rem;
+}
+
 .hidden {
     display: none !important;
 }
