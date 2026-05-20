@@ -34,10 +34,28 @@
       "description": "Review the IP clauses in one agreement against your IP posture — assignment-gap check, clause-by-clause severity, cross-clause consistency."
     },
     {
+      "id": "infringement-triage",
+      "type": "triage",
+      "title": "Infringement Triage",
+      "description": "Triage a potential infringement of your IP — assess the claim, the evidence, and the realistic options before escalating."
+    },
+    {
       "id": "cease-desist",
       "type": "draft",
       "title": "Cease-and-Desist",
       "description": "Draft an outbound cease-and-desist letter (send mode) or triage an inbound one into a six-option memo (receive mode)."
+    },
+    {
+      "id": "takedown",
+      "type": "draft",
+      "title": "Takedown Notice",
+      "description": "Draft a takedown notice (e.g., DMCA or platform-specific) against infringing content from the uploaded facts."
+    },
+    {
+      "id": "portfolio",
+      "type": "track",
+      "title": "Portfolio Status",
+      "description": "Produce a portfolio status rollup across your uploaded IP records — registrations, deadlines, and renewal exposure."
     }
   ]
 }
