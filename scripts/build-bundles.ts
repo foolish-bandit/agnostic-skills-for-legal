@@ -74,8 +74,8 @@ async function build() {
       zip.addFile(instructionFileName, Buffer.from(finalInstructions));
 
       // 3. Add Skills and Templates (Platform Specific)
-      if (platform === 'claude') {
-        // Claude: Separate files in knowledge-base/
+      if (platform === 'claude' || platform === 'gemini') {
+        // Claude & Gemini: Separate files in knowledge-base/
         manifest.skills.forEach(skillRelPath => {
           const skillPath = path.join(areaDir, skillRelPath);
           zip.addLocalFile(skillPath, 'knowledge-base');
@@ -85,7 +85,7 @@ async function build() {
           zip.addLocalFile(templatePath, 'knowledge-base');
         });
       } else {
-        // ChatGPT/Gemini: Consolidated skills
+        // ChatGPT: Consolidated skills
         let consolidatedSkills = `# ${manifest.name} Skills\n\n`;
         manifest.skills.forEach(skillRelPath => {
           const skillContent = fs.readFileSync(path.join(areaDir, skillRelPath), 'utf8');

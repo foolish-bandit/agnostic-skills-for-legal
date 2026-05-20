@@ -29,7 +29,7 @@ const ZIP_CONTENTS = {
     ],
     gemini: [
         '<code>NOTEBOOK_INSTRUCTIONS.md</code>',
-        'Consolidated practice-area skills file',
+        '<code>knowledge-base/</code> (separate skill and template files)',
         '<code>README-FIRST.md</code>'
     ]
 };
@@ -52,8 +52,7 @@ const SETUP_STEPS = {
     gemini: [
         'Download the ZIP and unzip it.',
         'In NotebookLM, create a new notebook.',
-        'Add <code>NOTEBOOK_INSTRUCTIONS.md</code> and the consolidated skills file as sources.',
-        'Add any template files as sources too if you need them.',
+        'Add <code>NOTEBOOK_INSTRUCTIONS.md</code> and every file in <code>knowledge-base/</code> as sources.',
         'Start with the starter prompt above (also in <code>README-FIRST.md</code>).'
     ]
 };
