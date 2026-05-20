@@ -498,6 +498,15 @@ code {
     color: var(--muted);
 }
 
+.prompts-intro .attribution-note {
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+}
+
+.prompts-intro a {
+    color: var(--accent);
+}
+
 .prompts-note {
     margin: 1.5rem 0;
     font-size: 0.85rem;

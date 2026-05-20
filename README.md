@@ -40,6 +40,8 @@ That is **9 practice areas × 3 platforms = 27 bundles**. Every ZIP includes a `
 
 A catalog of **79 standalone, copy-paste prompts** across all nine practice areas. Each prompt runs on its own — paste one into a fresh AI chat and it works, with no setup file required. The website's prompt view is searchable and filterable by practice area and task type (Set up, Triage, Review, Draft, Track).
 
+Every prompt is adapted from Anthropic's open-source [Claude for Legal](https://github.com/anthropics/claude-for-legal) skills, used under the Apache-2.0 license — re-housed as plain copy-paste prompts with no plugin, connector, or setup requirement. See [Attribution & licensing](#attribution--licensing) below.
+
 ---
 
 ## Quick start
@@ -165,10 +167,10 @@ The site is hosted on **Cloudflare Pages**, which builds from this repository on
 
 Licensed under the **Apache License 2.0** — see [`LICENSE`](LICENSE).
 
-This project includes adaptations of legal AI workflows from:
+This project is built on legal AI workflows from:
 
-- [Anthropic's `claude-for-legal`](https://github.com/anthropics/claude-for-legal)
-- [`claude-for-legal-web` by veronica-builds](https://github.com/veronica-builds/claude-for-legal-web)
+- **[Anthropic's `claude-for-legal`](https://github.com/anthropics/claude-for-legal)** — all 9 practice-area bundles and all 79 standalone prompts are adapted from these skills, re-housed as platform bundles and plain copy-paste prompts.
+- [`claude-for-legal-web` by veronica-builds](https://github.com/veronica-builds/claude-for-legal-web) — organizational structure and the platform-bundle concept.
 
 **Non-affiliation:** This is an independent open-source initiative. It is not affiliated with, endorsed by, or sponsored by Anthropic, OpenAI, Google, or the authors of the adapted works. Platform names are used for descriptive compatibility only.
 
