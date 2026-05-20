@@ -2,5 +2,7 @@ node_modules/
 dist/
 public/bundles/
 public/prompts/
+public/llms.txt
+public/sitemap.xml
 *.zip
 .DS_Store

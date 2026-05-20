@@ -458,8 +458,14 @@ function buildPromptCard(prompt) {
         }
     });
 
+    const pageLink = document.createElement('a');
+    pageLink.className = 'ghost-btn';
+    pageLink.href = prompt.file.replace(/\.md$/, '.html');
+    pageLink.textContent = 'Open page';
+
     foot.appendChild(copyBtn);
     foot.appendChild(previewBtn);
+    foot.appendChild(pageLink);
     card.appendChild(h4);
     card.appendChild(desc);
     card.appendChild(foot);
