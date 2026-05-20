@@ -3,6 +3,7 @@ dist/
 public/bundles/
 public/prompts/
 public/llms.txt
+public/llms-full.txt
 public/sitemap.xml
 *.zip
 .DS_Store

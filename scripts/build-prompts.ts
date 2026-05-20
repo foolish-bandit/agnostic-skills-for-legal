@@ -99,6 +99,7 @@ function build() {
   const index: any[] = [];
   const manifests: PromptManifest[] = [];
   const searchIndex: Record<string, string> = {};
+  const bodies: Record<string, string> = {};
   let errorCount = 0;
   let pageCount = 0;
 
@@ -138,6 +139,7 @@ function build() {
 
       // Full-text search index: lowercased, whitespace-collapsed prompt body
       searchIndex[fileRef] = mdText.toLowerCase().replace(/\s+/g, ' ').trim();
+      bodies[fileRef] = mdText;
 
       // Raw Markdown (clean, LLM-friendly)
       fs.writeFileSync(path.join(outAreaDir, `${prompt.id}.md`), mdText);
@@ -172,6 +174,7 @@ function build() {
   console.log(`Prompt catalog generation complete. ${pageCount} prompt pages, index.json + search-index.json updated.`);
 
   writeLlmsTxt(manifests);
+  writeLlmsFull(manifests, bodies);
   writeSitemap(manifests);
 }
 
@@ -184,6 +187,7 @@ function writeLlmsTxt(manifests: PromptManifest[]) {
   out += `aid for licensed-attorney review — not legal advice. Adapted from Anthropic's `;
   out += `open-source Claude for Legal skills (Apache-2.0); an independent project, not `;
   out += `affiliated with Anthropic.\n\n`;
+  out += `For agents: to retrieve the entire catalog in a single request, fetch [llms-full.txt](${BASE_URL}/llms-full.txt) — it inlines the full text of every prompt.\n\n`;
   out += `## Individual prompts\n\n`;
   out += `Each prompt is a standalone workflow. The links below are the raw Markdown — paste one into a fresh AI chat to run it.\n\n`;
 
@@ -196,12 +200,43 @@ function writeLlmsTxt(manifests: PromptManifest[]) {
   }
 
   out += `## More\n\n`;
+  out += `- [llms-full.txt](${BASE_URL}/llms-full.txt): the full text of every prompt inline, in one file\n`;
   out += `- [Website](${BASE_URL}/): platform bundles and the searchable prompt catalog\n`;
   out += `- [Prompt catalog (JSON)](${BASE_URL}/prompts/index.json)\n`;
   out += `- [Bundle catalog (JSON)](${BASE_URL}/bundles/index.json)\n`;
 
   fs.writeFileSync(path.join(PUBLIC_DIR, 'llms.txt'), out);
   console.log('llms.txt written.');
+}
+
+function writeLlmsFull(manifests: PromptManifest[], bodies: Record<string, string>) {
+  const total = manifests.reduce((n, m) => n + m.prompts.length, 0);
+  const areaRule = '═'.repeat(72);
+  const promptRule = '─'.repeat(72);
+
+  let out = `# Agnostic Skills for Legal — Full Prompt Catalog\n\n`;
+  out += `> Legal AI skills for Claude, ChatGPT, and Gemini. This file inlines the full text `;
+  out += `of all ${total} standalone copy-paste prompts across 9 legal practice areas. Every `;
+  out += `output is a drafting and workflow aid for licensed-attorney review — not legal `;
+  out += `advice. Adapted from Anthropic's open-source Claude for Legal skills (Apache-2.0); `;
+  out += `an independent project, not affiliated with Anthropic.\n\n`;
+  out += `Each prompt below is a self-contained workflow. To run one, copy everything from its `;
+  out += `"You are running ..." opening line through its closing "Then wait for the user's `;
+  out += `first reply." line into a fresh AI chat. Canonical per-prompt files are at `;
+  out += `${BASE_URL}/prompts/<area>/<id>.md\n\n`;
+
+  for (const m of manifests) {
+    out += `${areaRule}\n\n# ${m.area}\n\n`;
+    for (const p of m.prompts) {
+      const fileRef = `prompts/${m.areaId}/${p.id}.md`;
+      out += `${promptRule}\n\n## ${p.title} (${p.type})\n\n`;
+      out += `Practice area: ${m.area}. Canonical source: ${BASE_URL}/${fileRef}\n\n`;
+      out += `${(bodies[fileRef] || '').trim()}\n\n`;
+    }
+  }
+
+  fs.writeFileSync(path.join(PUBLIC_DIR, 'llms-full.txt'), out);
+  console.log('llms-full.txt written.');
 }
 
 function writeSitemap(manifests: PromptManifest[]) {
