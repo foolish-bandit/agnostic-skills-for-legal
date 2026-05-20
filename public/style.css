@@ -476,50 +476,98 @@ code {
     color: var(--muted);
 }
 
-.prompt-skeleton {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 0.75rem;
-}
-
-.skel-card {
-    border: 1px solid var(--line-soft);
-    border-radius: var(--radius);
-    background: var(--bg-soft);
-    padding: 1.1rem;
-}
-
-.skel-line {
-    height: 0.6rem;
-    border-radius: 3px;
-    background: var(--line-soft);
-    margin-bottom: 0.6rem;
-}
-
-.skel-title {
-    height: 0.85rem;
-    width: 55%;
-    background: var(--line);
-    margin-bottom: 1rem;
-}
-
-.skel-short {
-    width: 70%;
-}
-
-.skel-btn {
-    height: 1.7rem;
-    width: 6.5rem;
-    border-radius: var(--radius);
-    background: var(--line);
-    margin-top: 1rem;
-}
-
 .prompts-note {
-    margin: 1.5rem 0 0;
+    margin: 1.5rem 0;
     font-size: 0.85rem;
     color: var(--muted);
     text-align: center;
+}
+
+.prompt-area {
+    margin-bottom: 2rem;
+}
+
+.prompt-area-head h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+}
+
+.prompt-area-head p {
+    margin: 0 0 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.prompts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.75rem;
+}
+
+.prompt-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.prompt-card h4 {
+    margin: 0 0 0.3rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.prompt-card .prompt-desc {
+    margin: 0 0 0.9rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    flex: 1;
+}
+
+.prompt-card-foot {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.ghost-btn {
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+}
+
+.ghost-btn:hover {
+    border-color: var(--accent);
+    color: var(--ink);
+}
+
+.ghost-btn:focus-visible,
+.copy-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.prompt-preview {
+    margin: 0.9rem 0 0;
+    padding: 0.75rem 0.85rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: 4px;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    max-height: 320px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
 footer {

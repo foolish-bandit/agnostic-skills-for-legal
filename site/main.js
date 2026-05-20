@@ -62,6 +62,9 @@ let bundleIndex = [];
 let selectedPlatform = null;
 let selectedAreaId = null;
 
+let promptsLoaded = false;
+const promptTextCache = new Map();
+
 async function init() {
     wireViewToggle();
 
@@ -94,6 +97,10 @@ function wireViewToggle() {
         pillPrompts.classList.toggle('active', !isBundles);
         pillBundles.setAttribute('aria-selected', String(isBundles));
         pillPrompts.setAttribute('aria-selected', String(!isBundles));
+
+        if (!isBundles && !promptsLoaded) {
+            loadPrompts();
+        }
     }
 
     pillBundles.addEventListener('click', () => show('bundles'));
@@ -262,6 +269,139 @@ function escapeHtml(str) {
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+}
+
+/* ===== Individual prompts ===== */
+
+async function loadPrompts() {
+    promptsLoaded = true;
+    const container = document.getElementById('prompts-content');
+    try {
+        const res = await fetch('prompts/index.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('Prompt index fetch failed: ' + res.status);
+        const data = await res.json();
+        renderPromptCatalog(data);
+    } catch (err) {
+        console.error(err);
+        promptsLoaded = false;
+        container.innerHTML = '<p class="prompts-note">The prompt catalog could not be loaded. Please try again later.</p>';
+    }
+}
+
+function renderPromptCatalog(areas) {
+    const container = document.getElementById('prompts-content');
+    container.innerHTML = '';
+
+    if (!Array.isArray(areas) || areas.length === 0) {
+        container.innerHTML = '<p class="prompts-note">No prompts are available yet. Check back soon.</p>';
+        return;
+    }
+
+    areas.forEach(area => {
+        const section = document.createElement('section');
+        section.className = 'prompt-area';
+
+        const head = document.createElement('div');
+        head.className = 'prompt-area-head';
+        head.innerHTML = `<h3>${escapeHtml(area.area)}</h3><p>${escapeHtml(area.blurb || '')}</p>`;
+        section.appendChild(head);
+
+        const grid = document.createElement('div');
+        grid.className = 'prompts-grid';
+        (area.prompts || []).forEach(prompt => grid.appendChild(buildPromptCard(prompt)));
+        section.appendChild(grid);
+
+        container.appendChild(section);
+    });
+}
+
+function buildPromptCard(prompt) {
+    const card = document.createElement('div');
+    card.className = 'prompt-card';
+
+    const h4 = document.createElement('h4');
+    h4.textContent = prompt.title;
+
+    const desc = document.createElement('p');
+    desc.className = 'prompt-desc';
+    desc.textContent = prompt.description || '';
+
+    const foot = document.createElement('div');
+    foot.className = 'prompt-card-foot';
+
+    const copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.className = 'copy-btn';
+    copyBtn.textContent = 'Copy prompt';
+
+    const previewBtn = document.createElement('button');
+    previewBtn.type = 'button';
+    previewBtn.className = 'ghost-btn';
+    previewBtn.textContent = 'Preview';
+    previewBtn.setAttribute('aria-expanded', 'false');
+
+    const preview = document.createElement('pre');
+    preview.className = 'prompt-preview hidden';
+
+    copyBtn.addEventListener('click', async () => {
+        const text = await getPromptText(prompt.file);
+        if (text == null) {
+            flashButton(copyBtn, 'Copy failed', 'Copy prompt');
+            return;
+        }
+        try {
+            await navigator.clipboard.writeText(text);
+            flashButton(copyBtn, 'Copied', 'Copy prompt');
+        } catch (err) {
+            console.error(err);
+            flashButton(copyBtn, 'Copy failed', 'Copy prompt');
+        }
+    });
+
+    previewBtn.addEventListener('click', async () => {
+        if (preview.classList.contains('hidden')) {
+            if (!preview.dataset.loaded) {
+                preview.textContent = 'Loading…';
+                const text = await getPromptText(prompt.file);
+                preview.textContent = text != null ? text : 'Preview could not be loaded.';
+                if (text != null) preview.dataset.loaded = 'true';
+            }
+            preview.classList.remove('hidden');
+            previewBtn.textContent = 'Hide preview';
+            previewBtn.setAttribute('aria-expanded', 'true');
+        } else {
+            preview.classList.add('hidden');
+            previewBtn.textContent = 'Preview';
+            previewBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    foot.appendChild(copyBtn);
+    foot.appendChild(previewBtn);
+    card.appendChild(h4);
+    card.appendChild(desc);
+    card.appendChild(foot);
+    card.appendChild(preview);
+    return card;
+}
+
+async function getPromptText(file) {
+    if (promptTextCache.has(file)) return promptTextCache.get(file);
+    try {
+        const res = await fetch(file, { cache: 'no-cache' });
+        if (!res.ok) throw new Error('Prompt fetch failed: ' + res.status);
+        const text = await res.text();
+        promptTextCache.set(file, text);
+        return text;
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
+}
+
+function flashButton(btn, flashLabel, restoreLabel) {
+    btn.textContent = flashLabel;
+    setTimeout(() => { btn.textContent = restoreLabel; }, 1500);
 }
 
 init();

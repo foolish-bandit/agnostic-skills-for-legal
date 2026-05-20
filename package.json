@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "validate": "ts-node scripts/validate-manifests.ts",
-    "build": "npm run validate && ts-node scripts/build-bundles.ts && cp site/* public/",
+    "build": "npm run validate && ts-node scripts/build-bundles.ts && ts-node scripts/build-prompts.ts && cp site/* public/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

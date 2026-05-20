@@ -1,0 +1,92 @@
+{
+  "area": "Litigation",
+  "areaId": "litigation",
+  "blurb": "Standalone copy-paste prompts for litigation matter management and case workflows. Each prompt runs on its own — paste it into a fresh AI chat to begin. Every output is a draft for licensed-attorney review.",
+  "prompts": [
+    {
+      "id": "cold-start",
+      "title": "First Run — House Setup",
+      "description": "One-time interview that captures how you practise, producing a reusable Practice Profile you can paste into later litigation workflows. Optional but recommended."
+    },
+    {
+      "id": "matter-intake",
+      "title": "New Matter Intake",
+      "description": "Ten-step intake for a new matter: conflicts, jurisdiction, key dates and limitation periods, preservation, privilege, and procedural posture."
+    },
+    {
+      "id": "matter-update",
+      "title": "Matter Update",
+      "description": "Log one event against a matter and produce a history entry plus a matter-log row update."
+    },
+    {
+      "id": "matter-briefing",
+      "title": "Matter Briefing",
+      "description": "Short pre-call briefing on one existing matter, drawn from its saved summary, log row, and recent history."
+    },
+    {
+      "id": "matter-close",
+      "title": "Matter Close",
+      "description": "Archive an ended matter with a closing history entry, a status update, and a closing summary block."
+    },
+    {
+      "id": "portfolio-status",
+      "title": "Portfolio Status",
+      "description": "Weekly rollup across your matter log: risk distribution, upcoming deadlines, materiality totals, and flagged anomalies."
+    },
+    {
+      "id": "oc-status",
+      "title": "Outside Counsel Status",
+      "description": "Draft per-matter weekly status-request emails to outside counsel across your portfolio, plus a run summary."
+    },
+    {
+      "id": "chronology",
+      "title": "Chronology Builder",
+      "description": "Build a fact chronology from pasted documents — theory-aware or production-centric and Bates-aware."
+    },
+    {
+      "id": "legal-hold",
+      "title": "Legal Hold",
+      "description": "Run the litigation-hold lifecycle: issue, refresh, release, or status check."
+    },
+    {
+      "id": "privilege-log-review",
+      "title": "Privilege Log Review",
+      "description": "First-pass privilege sort: make the obvious calls and flag every close one for attorney review."
+    },
+    {
+      "id": "subpoena",
+      "title": "Subpoena Triage",
+      "description": "Triage an inbound subpoena — classification, scope and burden, objections framework, and a compliance plan."
+    },
+    {
+      "id": "demand-intake",
+      "title": "Demand Letter Intake",
+      "description": "Capture the pre-writing context for an outbound demand letter — parties, facts, basis, leverage — into a structured intake."
+    },
+    {
+      "id": "demand-draft",
+      "title": "Demand Letter Draft",
+      "description": "Draft an outbound demand letter after seven pre-draft risk checks. Higher-risk workflow; attorney review required before sending."
+    },
+    {
+      "id": "demand-letter",
+      "title": "Demand Letter Received",
+      "description": "Triage an inbound demand letter into a labelled triage report you can save to the matter file."
+    },
+    {
+      "id": "deposition-prep",
+      "title": "Deposition Prep",
+      "description": "Build a deposition outline from pasted documents and case theory, tuned to the witness and their posture."
+    },
+    {
+      "id": "claim-chart",
+      "title": "Claim / Element Chart",
+      "description": "Build a claim or element chart — patent or civil, asserting or defending — mapped to the governing standard."
+    },
+    {
+      "id": "brief-section-drafter",
+      "title": "Brief Section Drafter",
+      "description": "Draft a first version of a brief section in your house style — cited, theory-consistent, with verification markers."
+    }
+  ]
+}
