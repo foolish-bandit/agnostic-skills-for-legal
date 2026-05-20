@@ -26,8 +26,8 @@ This project uses a "Source of Truth" model. Canonical skills are maintained in 
 -   **`public/`**: The generated output, including ZIP bundles and the static website.
 
 ### Platform Packaging Logic
--   **Claude Projects:** Maintains modularity by placing separate skill files into a `knowledge-base/` folder.
--   **ChatGPT & Gemini:** Optimizes for file limits by consolidating multiple skills into a single practice-area skills file.
+-   **Claude Projects & Gemini Notebooks:** Maintain modularity by placing separate skill files into a `knowledge-base/` folder.
+-   **ChatGPT Projects:** Optimizes for file limits by consolidating multiple skills into a single practice-area skills file.
 
 ---
 

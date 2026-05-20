@@ -7,7 +7,7 @@ This is a pre-packaged set of legal AI instructions and skills for the **{{pract
 
 ## How to Install
 1.  **Create a Notebook:** Go to [notebooklm.google.com](https://notebooklm.google.com) and create a new notebook (e.g., "{{practice_area}} Workflows").
-2.  **Upload Sources:** Upload **all** Markdown files in this ZIP file (including `NOTEBOOK_INSTRUCTIONS.md`, `{{manifest_id}}-skills.md`, and any templates) as sources for your notebook.
+2.  **Upload Sources:** Upload **all** Markdown files in this ZIP file as sources for your notebook — `NOTEBOOK_INSTRUCTIONS.md` and every file in the `knowledge-base/` folder (the separate skill and template files).
 3.  **Start Chatting:** Once the sources are uploaded, Gemini will have access to all your instructions and skills.
 
 ## Starter Message
