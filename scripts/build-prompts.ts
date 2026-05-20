@@ -98,6 +98,7 @@ function build() {
 
   const index: any[] = [];
   const manifests: PromptManifest[] = [];
+  const searchIndex: Record<string, string> = {};
   let errorCount = 0;
   let pageCount = 0;
 
@@ -133,6 +134,10 @@ function build() {
       }
 
       const mdText = fs.readFileSync(srcFile, 'utf8');
+      const fileRef = `prompts/${manifest.areaId}/${prompt.id}.md`;
+
+      // Full-text search index: lowercased, whitespace-collapsed prompt body
+      searchIndex[fileRef] = mdText.toLowerCase().replace(/\s+/g, ' ').trim();
 
       // Raw Markdown (clean, LLM-friendly)
       fs.writeFileSync(path.join(outAreaDir, `${prompt.id}.md`), mdText);
@@ -149,7 +154,7 @@ function build() {
         type: prompt.type || 'other',
         title: prompt.title,
         description: prompt.description,
-        file: `prompts/${manifest.areaId}/${prompt.id}.md`
+        file: fileRef
       });
     }
 
@@ -163,7 +168,8 @@ function build() {
   }
 
   fs.writeFileSync(path.join(OUTPUT_DIR, 'index.json'), JSON.stringify(index, null, 2));
-  console.log(`Prompt catalog generation complete. ${pageCount} prompt pages, index.json updated.`);
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'search-index.json'), JSON.stringify(searchIndex));
+  console.log(`Prompt catalog generation complete. ${pageCount} prompt pages, index.json + search-index.json updated.`);
 
   writeLlmsTxt(manifests);
   writeSitemap(manifests);
