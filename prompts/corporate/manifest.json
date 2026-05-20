@@ -1,0 +1,67 @@
+{
+  "area": "Corporate",
+  "areaId": "corporate",
+  "blurb": "Standalone copy-paste prompts for corporate and M&A work — due diligence, closing, board governance, entity compliance, and post-closing integration. Each prompt runs on its own; the workflows offer a provisional mode if you have not built a Practice Profile. Every output is a draft for licensed-attorney review.",
+  "prompts": [
+    {
+      "id": "cold-start",
+      "type": "setup",
+      "title": "Corporate Practice Setup",
+      "description": "One-time interview that builds a reusable Corporate Practice Profile across M&A, board/secretary, public-company, and entity-management work. Optional but recommended."
+    },
+    {
+      "id": "diligence-issue-extraction",
+      "type": "review",
+      "title": "Diligence Issue Extraction",
+      "description": "Read uploaded data-room documents and extract diligence issues into a structured, house-format table."
+    },
+    {
+      "id": "tabular-review",
+      "type": "review",
+      "title": "Tabular Diligence Review",
+      "description": "Tabular review of an uploaded document set — one row per document, one column per data point, every cell cited to source."
+    },
+    {
+      "id": "material-contract-schedule",
+      "type": "draft",
+      "title": "Material Contract Schedule",
+      "description": "Build a material-contracts disclosure schedule from uploaded diligence findings or contracts."
+    },
+    {
+      "id": "closing-checklist",
+      "type": "track",
+      "title": "Closing Checklist",
+      "description": "Build and maintain a closing checklist from the uploaded deal documents — deliverables, conditions, critical path, and what is blocking."
+    },
+    {
+      "id": "written-consent",
+      "type": "draft",
+      "title": "Written Consent",
+      "description": "Draft a board or committee unanimous written consent from an uploaded precedent, with conflict flags and a signatory checklist."
+    },
+    {
+      "id": "board-minutes",
+      "type": "draft",
+      "title": "Board Minutes",
+      "description": "Draft board or committee meeting minutes from an uploaded agenda and notes, in house format."
+    },
+    {
+      "id": "entity-compliance",
+      "type": "track",
+      "title": "Entity Compliance",
+      "description": "Build an entity compliance checklist from uploaded corporate records — qualifications, annual filings, registered agent, governance hygiene."
+    },
+    {
+      "id": "integration-management",
+      "type": "track",
+      "title": "Post-Closing Integration",
+      "description": "Track post-closing integration and survival obligations from the uploaded purchase agreement and ancillary documents."
+    },
+    {
+      "id": "deal-team-summary",
+      "type": "draft",
+      "title": "Deal Team Summary",
+      "description": "Turn a completed diligence or deal review into a concise summary for the deal team or business stakeholders."
+    }
+  ]
+}
