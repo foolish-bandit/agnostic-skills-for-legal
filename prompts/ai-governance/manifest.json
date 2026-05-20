@@ -1,0 +1,49 @@
+{
+  "area": "AI Governance",
+  "areaId": "ai-governance",
+  "blurb": "Standalone copy-paste prompts for AI governance work — use-case triage, AI impact assessments, vendor AI review, AI inventory, and regulation-to-policy gap analysis. Each prompt runs on its own; the workflows offer a provisional mode if you have not built a Practice Profile. Every output is a draft for licensed-attorney review.",
+  "prompts": [
+    {
+      "id": "cold-start",
+      "type": "setup",
+      "title": "AI Governance Practice Setup",
+      "description": "One-time interview that builds a reusable AI Governance Practice Profile — AI policy posture, frameworks in scope, risk tolerance, and escalation. Optional but recommended."
+    },
+    {
+      "id": "use-case-triage",
+      "type": "triage",
+      "title": "AI Use-Case Triage",
+      "description": "Sort one proposed AI use case into a risk tier and route it — proceed, assess, or escalate — against the EU AI Act and your frameworks."
+    },
+    {
+      "id": "ai-inventory",
+      "type": "track",
+      "title": "AI Inventory",
+      "description": "Build and maintain an inventory of the organization's AI systems from uploaded records, with risk classification."
+    },
+    {
+      "id": "aia-generation",
+      "type": "draft",
+      "title": "AI Impact Assessment",
+      "description": "Draft an AI impact assessment for one AI system in your house format from an uploaded description or PRD."
+    },
+    {
+      "id": "vendor-ai-review",
+      "type": "review",
+      "title": "Vendor AI Review",
+      "description": "Review one vendor's AI terms — training rights, data use, IP indemnity, transparency — against your AI posture."
+    },
+    {
+      "id": "reg-gap-analysis",
+      "type": "review",
+      "title": "Regulation Gap Analysis",
+      "description": "Diff an uploaded AI regulation or guidance against your current AI policy into a gap list and remediation plan."
+    },
+    {
+      "id": "policy-starter",
+      "type": "draft",
+      "title": "AI Policy Starter",
+      "description": "Draft a starter AI governance policy scaffold for your organization to build on."
+    }
+  ]
+}
