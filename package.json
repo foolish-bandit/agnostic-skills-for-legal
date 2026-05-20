@@ -1,7 +1,7 @@
 {
   "name": "agnostic-skills-for-legal",
   "version": "1.0.0",
-  "description": "",
+  "description": "Legal AI skills for Claude, ChatGPT, and Gemini — ready-to-use, platform-specific bundles and standalone prompts.",
   "main": "index.js",
   "scripts": {
     "validate": "ts-node scripts/validate-manifests.ts",
@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/foolish-bandit/agnostic-skills-for-legal/issues"
