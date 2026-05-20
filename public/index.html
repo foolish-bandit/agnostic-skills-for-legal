@@ -157,6 +157,18 @@
                 <h2>Individual prompts</h2>
                 <p>Browse and copy individual prompts — standalone starting points you can paste straight into an AI chat. Each one runs on its own and produces a draft for licensed-attorney review.</p>
             </section>
+            <div class="prompt-filters hidden" id="prompt-filters">
+                <input type="search" id="prompt-search" class="prompt-search" placeholder="Search prompts by name or description…" aria-label="Search prompts">
+                <div class="filter-group">
+                    <span class="filter-label">Practice area</span>
+                    <div class="filter-chips" id="filter-area" role="group" aria-label="Filter by practice area"></div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Task</span>
+                    <div class="filter-chips" id="filter-type" role="group" aria-label="Filter by task type"></div>
+                </div>
+                <p class="prompts-count" id="prompts-count" aria-live="polite"></p>
+            </div>
             <div id="prompts-content">
                 <p class="prompts-note">Loading prompts…</p>
             </div>

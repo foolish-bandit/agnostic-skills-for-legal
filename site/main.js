@@ -273,14 +273,30 @@ function escapeHtml(str) {
 
 /* ===== Individual prompts ===== */
 
+const TASK_TYPES = [
+    { id: 'setup', label: 'Set up' },
+    { id: 'triage', label: 'Triage' },
+    { id: 'review', label: 'Review' },
+    { id: 'draft', label: 'Draft' },
+    { id: 'track', label: 'Track' }
+];
+
+let promptCatalog = [];
+const promptFilter = { search: '', area: 'all', type: 'all' };
+
 async function loadPrompts() {
     promptsLoaded = true;
     const container = document.getElementById('prompts-content');
     try {
         const res = await fetch('prompts/index.json', { cache: 'no-cache' });
         if (!res.ok) throw new Error('Prompt index fetch failed: ' + res.status);
-        const data = await res.json();
-        renderPromptCatalog(data);
+        promptCatalog = await res.json();
+        if (!Array.isArray(promptCatalog) || promptCatalog.length === 0) {
+            container.innerHTML = '<p class="prompts-note">No prompts are available yet. Check back soon.</p>';
+            return;
+        }
+        setupPromptFilters();
+        renderFilteredPrompts();
     } catch (err) {
         console.error(err);
         promptsLoaded = false;
@@ -288,16 +304,73 @@ async function loadPrompts() {
     }
 }
 
-function renderPromptCatalog(areas) {
+function setupPromptFilters() {
+    const areaChips = document.getElementById('filter-area');
+    const typeChips = document.getElementById('filter-type');
+    areaChips.innerHTML = '';
+    typeChips.innerHTML = '';
+
+    areaChips.appendChild(makeChip('All', 'all', 'area'));
+    promptCatalog.forEach(area => areaChips.appendChild(makeChip(area.area, area.areaId, 'area')));
+
+    typeChips.appendChild(makeChip('All', 'all', 'type'));
+    TASK_TYPES.forEach(t => typeChips.appendChild(makeChip(t.label, t.id, 'type')));
+
+    const search = document.getElementById('prompt-search');
+    search.addEventListener('input', () => {
+        promptFilter.search = search.value.trim().toLowerCase();
+        renderFilteredPrompts();
+    });
+
+    document.getElementById('prompt-filters').classList.remove('hidden');
+}
+
+function makeChip(label, value, group) {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'chip';
+    chip.textContent = label;
+    chip.dataset.group = group;
+    chip.dataset.value = value;
+    const active = promptFilter[group] === value;
+    chip.classList.toggle('active', active);
+    chip.setAttribute('aria-pressed', String(active));
+    chip.addEventListener('click', () => {
+        promptFilter[group] = value;
+        document.querySelectorAll(`.chip[data-group="${group}"]`).forEach(c => {
+            const on = c.dataset.value === value;
+            c.classList.toggle('active', on);
+            c.setAttribute('aria-pressed', String(on));
+        });
+        renderFilteredPrompts();
+    });
+    return chip;
+}
+
+function promptMatches(prompt) {
+    if (promptFilter.type !== 'all' && prompt.type !== promptFilter.type) return false;
+    if (promptFilter.search) {
+        const hay = (prompt.title + ' ' + (prompt.description || '')).toLowerCase();
+        if (!hay.includes(promptFilter.search)) return false;
+    }
+    return true;
+}
+
+function renderFilteredPrompts() {
     const container = document.getElementById('prompts-content');
     container.innerHTML = '';
 
-    if (!Array.isArray(areas) || areas.length === 0) {
-        container.innerHTML = '<p class="prompts-note">No prompts are available yet. Check back soon.</p>';
-        return;
-    }
+    let shown = 0;
+    let total = 0;
 
-    areas.forEach(area => {
+    promptCatalog.forEach(area => {
+        total += (area.prompts || []).length;
+        if (promptFilter.area !== 'all' && area.areaId !== promptFilter.area) return;
+
+        const matching = (area.prompts || []).filter(promptMatches);
+        if (matching.length === 0) return;
+        shown += matching.length;
+
         const section = document.createElement('section');
         section.className = 'prompt-area';
 
@@ -308,11 +381,21 @@ function renderPromptCatalog(areas) {
 
         const grid = document.createElement('div');
         grid.className = 'prompts-grid';
-        (area.prompts || []).forEach(prompt => grid.appendChild(buildPromptCard(prompt)));
+        matching.forEach(p => grid.appendChild(buildPromptCard(p)));
         section.appendChild(grid);
 
         container.appendChild(section);
     });
+
+    const count = document.getElementById('prompts-count');
+    if (shown === 0) {
+        container.innerHTML = '<p class="prompts-note">No prompts match these filters. Try clearing the search or choosing &ldquo;All&rdquo;.</p>';
+        count.textContent = `Showing 0 of ${total} prompts`;
+    } else {
+        count.textContent = shown === total
+            ? `Showing all ${total} prompts`
+            : `Showing ${shown} of ${total} prompts`;
+    }
 }
 
 function buildPromptCard(prompt) {

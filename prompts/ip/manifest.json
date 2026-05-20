@@ -5,31 +5,37 @@
   "prompts": [
     {
       "id": "cold-start",
+      "type": "setup",
       "title": "IP Practice Setup",
       "description": "One-time interview that builds a reusable IP Practice Profile — practice-area mix, jurisdiction footprint, enforcement posture, approval matrix, OSS posture. Optional but recommended."
     },
     {
       "id": "clearance",
+      "type": "triage",
       "title": "Trademark Clearance (First Pass)",
       "description": "First-pass trademark clearance triage — intrinsic-bar checks and confusion factors. A triage, never a clearance opinion."
     },
     {
       "id": "fto-triage",
+      "type": "triage",
       "title": "Freedom-to-Operate Triage",
       "description": "A claim-chart first pass against supplied patents, flagging questions for patent counsel. Not an FTO opinion."
     },
     {
       "id": "invention-intake",
+      "type": "triage",
       "title": "Invention Disclosure Intake",
       "description": "First-pass screen of an invention disclosure across six screens, producing a Pursue / Investigate / Decline verdict. Never a patentability opinion."
     },
     {
       "id": "ip-clause-review",
+      "type": "review",
       "title": "IP Clause Review",
       "description": "Review the IP clauses in one agreement against your IP posture — assignment-gap check, clause-by-clause severity, cross-clause consistency."
     },
     {
       "id": "cease-desist",
+      "type": "draft",
       "title": "Cease-and-Desist",
       "description": "Draft an outbound cease-and-desist letter (send mode) or triage an inbound one into a six-option memo (receive mode)."
     }
