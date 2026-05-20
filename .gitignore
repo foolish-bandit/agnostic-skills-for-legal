@@ -1,5 +1,6 @@
 node_modules/
 dist/
 public/bundles/
+public/prompts/
 *.zip
 .DS_Store
