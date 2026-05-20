@@ -1,0 +1,52 @@
+{
+  "area": "Employment",
+  "areaId": "employment",
+  "blurb": "Standalone copy-paste prompts for employment and labor work — hiring, termination, worker classification, wage and hour, policies, handbooks, and international expansion. Each prompt runs on its own; the workflows offer a provisional mode if you have not built a Practice Profile. Every output is a draft for licensed-attorney review.",
+  "prompts": [
+    {
+      "id": "cold-start",
+      "title": "Employment Practice Setup",
+      "description": "One-time interview that builds a reusable Employment Practice Profile — jurisdictional footprint, hiring and termination triggers, classification posture, escalation. Optional but recommended."
+    },
+    {
+      "id": "hiring-review",
+      "title": "Hiring Review",
+      "description": "Review one offer letter (and any restrictive-covenant exhibit) against your practice posture and the candidate's work jurisdiction."
+    },
+    {
+      "id": "termination-review",
+      "title": "Termination Review",
+      "description": "Run the high-risk flag set against the facts, pressure-test severance and release, and produce a Go / No-go memo."
+    },
+    {
+      "id": "worker-classification",
+      "title": "Worker Classification",
+      "description": "Analyze a proposed engagement against the classification tests in the work jurisdiction — employee vs. independent contractor."
+    },
+    {
+      "id": "wage-hour-qa",
+      "title": "Wage / Hour Q&A",
+      "description": "Answer one jurisdiction-specific wage and hour or employment question against your facts."
+    },
+    {
+      "id": "policy-drafting",
+      "title": "Policy Drafting",
+      "description": "Draft one employment policy with state-supplement scaffolds for the jurisdictions in your footprint."
+    },
+    {
+      "id": "handbook-updates",
+      "title": "Handbook Updates",
+      "description": "Diff a proposed handbook change against the current text and walk cross-references and state supplements for ripple effects."
+    },
+    {
+      "id": "expansion-kickoff",
+      "title": "International Expansion Kickoff",
+      "description": "Frame the EOR-vs-entity decision for an international hire, draft cross-functional asks, and produce an outside-counsel briefing request."
+    },
+    {
+      "id": "expansion-update",
+      "title": "International Expansion Update",
+      "description": "Update an Expansion Tracker — apply changes, flag overdue items, surface unblocked dependencies, and re-check permanent-establishment risk."
+    }
+  ]
+}
