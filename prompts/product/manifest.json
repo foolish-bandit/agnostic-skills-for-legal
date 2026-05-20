@@ -1,0 +1,37 @@
+{
+  "area": "Product",
+  "areaId": "product",
+  "blurb": "Standalone copy-paste prompts for product counsel work — launch review, marketing claims, feature risk assessment, and fast triage. Each prompt runs on its own; the workflows offer a provisional mode if you have not built a Practice Profile. Every output is a draft for licensed-attorney review.",
+  "prompts": [
+    {
+      "id": "cold-start",
+      "type": "setup",
+      "title": "Product Practice Setup",
+      "description": "One-time interview that builds a reusable Product Practice Profile — what blocks at your company, escalation paths, and house formats. Optional but recommended."
+    },
+    {
+      "id": "is-this-a-problem",
+      "type": "triage",
+      "title": "Is This a Problem? — Quick Triage",
+      "description": "Fast triage of a quick product-counsel question — fine / needs a look / hold — pattern-matched against your calibration."
+    },
+    {
+      "id": "feature-risk-assessment",
+      "type": "triage",
+      "title": "Feature Risk Assessment",
+      "description": "Assess one feature against your risk calibration and surface the legal domains that need deeper review."
+    },
+    {
+      "id": "marketing-claims-review",
+      "type": "review",
+      "title": "Marketing Claims Review",
+      "description": "Review marketing copy before ship — extract claims, classify them, and flag what needs substantiation or a disclosure."
+    },
+    {
+      "id": "launch-review",
+      "type": "review",
+      "title": "Launch Review",
+      "description": "Coordinated legal review of a product launch from the uploaded PRD, mocks, and marketing materials, with a launch-gate recommendation."
+    }
+  ]
+}
