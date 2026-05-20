@@ -1,0 +1,37 @@
+{
+  "area": "Privacy",
+  "areaId": "privacy",
+  "blurb": "Standalone copy-paste prompts for privacy program work — applicability triage, DPAs, DSARs, PIAs, and regulatory change. Each prompt runs on its own; the workflow prompts offer a provisional mode if you have not built a Practice Profile. Every output is a draft for licensed-attorney review.",
+  "prompts": [
+    {
+      "id": "cold-start",
+      "title": "Privacy Practice Setup",
+      "description": "One-time interview that builds a reusable Privacy Practice Profile the other privacy workflows read. Optional but recommended."
+    },
+    {
+      "id": "use-case-triage",
+      "title": "Use-Case Triage",
+      "description": "Sort one processing activity into Proceed, PIA Required, DPIA Mandatory, or Stop."
+    },
+    {
+      "id": "dpa-review",
+      "title": "DPA Review",
+      "description": "Review one data processing agreement against your privacy playbook — where it deviates, what to redline, and what to escalate."
+    },
+    {
+      "id": "dsar-response",
+      "title": "DSAR Response",
+      "description": "Walk one data subject request through classification, identity verification, systems check, and response drafting."
+    },
+    {
+      "id": "pia-generation",
+      "title": "PIA Generation",
+      "description": "Draft one internal privacy impact assessment in your house style from an activity description or PRD."
+    },
+    {
+      "id": "reg-gap-analysis",
+      "title": "Regulation Gap Analysis",
+      "description": "Diff one new privacy rule or guidance package against your current state into a gap list and remediation plan."
+    }
+  ]
+}
