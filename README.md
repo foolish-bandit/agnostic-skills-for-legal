@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-0b5394.svg)](LICENSE)
 [![Practice areas](https://img.shields.io/badge/practice%20areas-9-0b5394.svg)](#practice-areas)
 [![Platform bundles](https://img.shields.io/badge/bundles-27-0b5394.svg)](#what-you-get)
-[![Prompt library](https://img.shields.io/badge/standalone%20prompts-46-0b5394.svg)](#prompt-library)
+[![Prompt library](https://img.shields.io/badge/standalone%20prompts-79-0b5394.svg)](#prompt-library)
 [![Status](https://img.shields.io/badge/status-active-2e7d32.svg)](#)
 
 [![Open the site](https://img.shields.io/badge/Open_the_Site-0b5394?style=for-the-badge)](https://agnostic-skills-for-legal.pages.dev)
@@ -38,7 +38,7 @@ That is **9 practice areas × 3 platforms = 27 bundles**. Every ZIP includes a `
 
 ### 2. Individual prompts
 
-A catalog of **46 standalone, copy-paste prompts** across five practice areas. Each prompt runs on its own — paste one into a fresh AI chat and it works, with no setup file required. The website's prompt view is searchable and filterable by practice area and task type (Set up, Triage, Review, Draft, Track).
+A catalog of **79 standalone, copy-paste prompts** across all nine practice areas. Each prompt runs on its own — paste one into a fresh AI chat and it works, with no setup file required. The website's prompt view is searchable and filterable by practice area and task type (Set up, Triage, Review, Draft, Track).
 
 ---
 
@@ -75,16 +75,20 @@ A catalog of **46 standalone, copy-paste prompts** across five practice areas. E
 
 ## Prompt library
 
-The Individual prompts catalog currently covers five practice areas:
+The Individual prompts catalog covers all nine practice areas:
 
 | Area | Prompts |
 | :-- | --: |
 | Litigation | 17 |
-| Employment | 9 |
+| Employment | 11 |
+| Corporate | 10 |
+| IP | 9 |
 | Commercial | 8 |
-| IP | 6 |
+| AI Governance | 7 |
 | Privacy | 6 |
-| **Total** | **46** |
+| Regulatory | 6 |
+| Product | 5 |
+| **Total** | **79** |
 
 ---
 
