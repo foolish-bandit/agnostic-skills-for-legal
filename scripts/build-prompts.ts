@@ -3,6 +3,7 @@ import * as path from 'path';
 
 interface PromptEntry {
   id: string;
+  type: string;
   title: string;
   description: string;
 }
@@ -71,6 +72,7 @@ function build() {
 
       areaEntry.prompts.push({
         id: prompt.id,
+        type: prompt.type || 'other',
         title: prompt.title,
         description: prompt.description,
         file: `prompts/${manifest.areaId}/${prompt.id}.md`

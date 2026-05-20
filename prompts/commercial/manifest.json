@@ -5,41 +5,49 @@
   "prompts": [
     {
       "id": "cold-start",
+      "type": "setup",
       "title": "Commercial Contracts — House Setup",
       "description": "One-time interview capturing how your contracts team works — playbook, escalation, deal-breakers — into a reusable Commercial Practice Profile. Optional but recommended."
     },
     {
       "id": "nda-review",
+      "type": "review",
       "title": "Triage an NDA",
       "description": "Sort one inbound NDA into Green / Yellow / Red against your team's playbook."
     },
     {
       "id": "vendor-agreement-review",
+      "type": "review",
       "title": "Review a Vendor Agreement",
       "description": "Review one inbound vendor agreement against your playbook — memo, redlines, two-axis severity, and a named approver."
     },
     {
       "id": "saas-review",
+      "type": "review",
       "title": "Review a SaaS / Subscription Agreement",
       "description": "Review a SaaS agreement with an overlay for auto-renewal, price escalation, data exit, SLAs, subprocessors, and AI / ML training rights."
     },
     {
       "id": "amendment-history",
+      "type": "review",
       "title": "Trace Amendments",
       "description": "Read a base agreement and its amendments — summarise what changed, or trace one provision to its current controlling language."
     },
     {
       "id": "renewal-tracker",
+      "type": "track",
       "title": "Track Renewal Deadlines",
       "description": "Read a renewal register and produce an urgency-banded rollup, a missed-windows report, or a refreshed register row."
     },
     {
       "id": "escalation-flagger",
+      "type": "triage",
       "title": "Route a Contract Issue for Approval",
       "description": "Match one contract issue against your escalation matrix, name the approver, and draft the ask. Needs a Commercial Practice Profile."
     },
     {
       "id": "stakeholder-summary",
+      "type": "draft",
       "title": "Summarise a Review for the Business",
       "description": "Turn a completed review memo into a two-minute, non-legal summary for the business owner who asked for the contract."
     }
