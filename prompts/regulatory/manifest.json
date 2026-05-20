@@ -1,0 +1,43 @@
+{
+  "area": "Regulatory",
+  "areaId": "regulatory",
+  "blurb": "Standalone copy-paste prompts for regulatory and compliance work — reviewing uploaded regulatory updates, diffing rules against internal policy, tracking gaps and comment periods, and drafting policy revisions. Each prompt runs on its own; the workflows offer a provisional mode if you have not built a Practice Profile. Every output is a draft for licensed-attorney review.",
+  "prompts": [
+    {
+      "id": "cold-start",
+      "type": "setup",
+      "title": "Regulatory Practice Setup",
+      "description": "One-time interview that builds a reusable Regulatory Practice Profile — regulatory footprint, materiality threshold, policy library, and escalation. Optional but recommended."
+    },
+    {
+      "id": "regulatory-update-review",
+      "type": "review",
+      "title": "Uploaded Regulatory Update Review",
+      "description": "Review an uploaded regulatory update — final rule, NPRM, guidance, enforcement order — and produce a structured summary classified by materiality."
+    },
+    {
+      "id": "policy-diff",
+      "type": "review",
+      "title": "Regulation-to-Policy Diff",
+      "description": "Diff an uploaded regulation against your uploaded internal policies and surface where they no longer line up."
+    },
+    {
+      "id": "gap-tracker",
+      "type": "track",
+      "title": "Compliance Gap Tracker",
+      "description": "Maintain a compliance gap tracker — open gaps by age and materiality, remediation status, owner notifications, and close / risk-accept decisions."
+    },
+    {
+      "id": "comment-tracker",
+      "type": "track",
+      "title": "NPRM Comment Tracker",
+      "description": "Track open NPRM comment periods — deadlines, file / not-file decisions, and a decision log."
+    },
+    {
+      "id": "policy-redraft",
+      "type": "draft",
+      "title": "Policy Redraft",
+      "description": "Propose targeted revisions to an uploaded internal policy in response to a regulatory change or identified gap."
+    }
+  ]
+}
