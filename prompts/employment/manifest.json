@@ -22,6 +22,12 @@
       "description": "Run the high-risk flag set against the facts, pressure-test severance and release, and produce a Go / No-go memo."
     },
     {
+      "id": "internal-investigation",
+      "type": "triage",
+      "title": "Internal Investigation",
+      "description": "Run an internal workplace investigation end to end — intake, a privileged investigation log, document review, Q&A against the log, and the final memo."
+    },
+    {
       "id": "worker-classification",
       "type": "triage",
       "title": "Worker Classification",
@@ -32,6 +38,12 @@
       "type": "review",
       "title": "Wage / Hour Q&A",
       "description": "Answer one jurisdiction-specific wage and hour or employment question against your facts."
+    },
+    {
+      "id": "leave-tracker",
+      "type": "track",
+      "title": "Leave Tracker",
+      "description": "Track open employee leaves — log entries and surface the leaves with upcoming designation, certification, or exhaustion deadlines."
     },
     {
       "id": "policy-drafting",
