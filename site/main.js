@@ -281,6 +281,8 @@ const TASK_TYPES = [
 ];
 
 let promptCatalog = [];
+let promptSearchText = {};
+let searchIndexPromise = null;
 const promptFilter = { search: '', area: 'all', type: 'all' };
 
 async function loadPrompts() {
@@ -318,6 +320,7 @@ function setupPromptFilters() {
     const search = document.getElementById('prompt-search');
     search.addEventListener('input', () => {
         promptFilter.search = search.value.trim().toLowerCase();
+        if (promptFilter.search) ensureSearchIndex().then(renderFilteredPrompts);
         renderFilteredPrompts();
     });
 
@@ -346,11 +349,22 @@ function makeChip(label, value, group) {
     return chip;
 }
 
+function ensureSearchIndex() {
+    if (searchIndexPromise) return searchIndexPromise;
+    searchIndexPromise = fetch('prompts/search-index.json', { cache: 'no-cache' })
+        .then(res => (res.ok ? res.json() : {}))
+        .then(data => { promptSearchText = data; })
+        .catch(err => { console.error(err); promptSearchText = {}; });
+    return searchIndexPromise;
+}
+
 function promptMatches(prompt) {
     if (promptFilter.type !== 'all' && prompt.type !== promptFilter.type) return false;
     if (promptFilter.search) {
-        const hay = (prompt.title + ' ' + (prompt.description || '')).toLowerCase();
-        if (!hay.includes(promptFilter.search)) return false;
+        const q = promptFilter.search;
+        const meta = (prompt.title + ' ' + (prompt.description || '')).toLowerCase();
+        const body = promptSearchText[prompt.file] || '';
+        if (!meta.includes(q) && !body.includes(q)) return false;
     }
     return true;
 }
